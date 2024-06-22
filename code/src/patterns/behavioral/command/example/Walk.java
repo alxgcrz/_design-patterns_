@@ -1,6 +1,6 @@
 package patterns.behavioral.command.example;
 
-class Walk implements Command {
+class Walk implements ICommand {
 
     // Receptor de la acción
     private Character character;

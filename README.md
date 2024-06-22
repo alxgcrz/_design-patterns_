@@ -4,32 +4,38 @@ Los patrones de diseño son técnicas que permiten resolver problemas comunes en
 
 Los patrones de diseño pretenden:
 
-* Proporcionar catálogos de elementos reusables en el diseño de sistemas software.
-* Evitar la reiteración en la búsqueda de soluciones a problemas ya conocidos y solucionados anteriormente.
-* Formalizar un vocabulario común entre diseñadores.
-* Estandarizar el modo en que se realiza el diseño.
-* Facilitar el aprendizaje de las nuevas generaciones de diseñadores condensando conocimiento ya existente.
+- Proporcionar catálogos de elementos reusables en el diseño de sistemas software.
+- Evitar la reiteración en la búsqueda de soluciones a problemas ya conocidos y solucionados anteriormente.
+- Formalizar un vocabulario común entre diseñadores.
+- Estandarizar el modo en que se realiza el diseño.
+- Facilitar el aprendizaje de las nuevas generaciones de diseñadores condensando conocimiento ya existente.
 
 Asimismo, no pretenden:
 
-* Imponer ciertas alternativas de diseño frente a otras.
-* Eliminar la creatividad inherente al proceso de diseño.
+- Imponer ciertas alternativas de diseño frente a otras.
+- Eliminar la creatividad inherente al proceso de diseño.
 
 Por tanto no es obligatorio utilizar los patrones. Sólo es aconsejable en el caso de detectar el mismo problema o uno similar para el cual existe un patrón que proporciona una solución probada, siempre teniendo en cuenta que en un caso particular puede no ser aplicable. Abusar o forzar el uso de los patrones puede ser contraproducente.
 
-## _'Behavioral Patterns'_
+## _"Behavioral Patterns"_
 
 Los patrones de comportamiento se definen como patrones de diseño de software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan.
 
-Los patrones de comportamiento son _Chain of Responsibility_, _Command_, _Interpreter_, _Iterator_, _Mediator_, _Memento_, _Observer_, _State_, _Strategy_, _Template Method_ y _Visitor_.
+Los patrones de comportamiento son **_Chain of Responsibility_**, [**_Command_**](#command-pattern), **_Interpreter_**, **_Iterator_**, **_Mediator_**, **_Memento_**, **_Observer_**, **_State_**, **_Strategy_**, **_Template Method_** y **_Visitor_**.
 
-### - Patrón **_"Command"_** -
+### _"Command Pattern"_
 
-![Command](.//media//patterns//behavioral//command_header.png)
-
-**Gof**: Encapsule una solicitud como un objeto, lo que le permite parametrizar a los clientes con diferentes solicitudes, solicitudes de cola o registro y admite operaciones que no se pueden deshacer.
+<!-- markdownlint-disable MD033 -->
+<div style="text-align: center;">
+  <img src=".//media//patterns//behavioral//command//command_header.png" alt="command_pattern_intro" style="width: 475px; height: auto;">
+</div>
+<!-- markdownlint-disable MD033 -->
 
 #### Concepto
+
+> _Encapsule una solicitud como un objeto, lo que le permite parametrizar a los clientes con diferentes solicitudes, solicitudes de cola o registro y admite operaciones que no se pueden deshacer._
+>
+> _-- GoF_
 
 El patrón **_'Command'_** permite solicitar una operación a un objeto sin conocer realmente el contenido de esta operación ni el receptor real de la misma. Para ello se encapsula la petición como un objeto, con lo que además facilita la parametrización de los métodos.
 
@@ -41,23 +47,27 @@ Un **invocador** solo conoce la interfaz de comandos, pero desconoce totalmente 
 
 Un objeto de **comando** es capaz de llamar a un método particular en el receptor. La lógica de la acción a ejecutar está definida en el método en el **receptor** que es invocado por el **comando**.
 
-![Concepto](.//media//patterns//behavioral//command_diagram.png)
+<!-- markdownlint-disable MD033 -->
+<div style="text-align: center;">
+  <img src=".//media//patterns//behavioral//command//command_diagram.png" alt="command_diagram_implementation" style="width: 475px; height: auto;">
+</div>
+<!-- markdownlint-disable MD033 -->
 
 El uso del patrón **_'Command'_** puede ser productivo en aquellas situaciones y escenarios en las que la relación directa entre el emisor de una orden y el receptor de la misma es insuficiente:
 
-* La invocación directa afecta sólo a emisor y receptor por lo que resulta complicado ampliar dicha relación a otros actores, como por ejemplo barras de progreso, ayuda contextual, etc...
+- La invocación directa afecta sólo a emisor y receptor por lo que resulta complicado ampliar dicha relación a otros actores, como por ejemplo barras de progreso, ayuda contextual, etc...
 
-* A veces es necesario un modelo de ejecución transaccional (al igual que en las bases de datos) en las que es necesario que se ejecuten todas las órdenes o si en caso de que alguna falle o no sea posible ejecutar, se deshagan todas las órdenes relacionadas y se mantenga o restaure el estado anterior.
+- A veces es necesario un modelo de ejecución transaccional (al igual que en las bases de datos) en las que es necesario que se ejecuten todas las órdenes o si en caso de que alguna falle o no sea posible ejecutar, se deshagan todas las órdenes relacionadas y se mantenga o restaure el estado anterior.
 
-* En las aplicaciones multi-hilo, este patrón es un método sencillo para desacoplar productores y receptores de órdenes, dado que los productores y receptores pueden estar en diferentes hilos.
+- En las aplicaciones multi-hilo, este patrón es un método sencillo para desacoplar productores y receptores de órdenes, dado que los productores y receptores pueden estar en diferentes hilos.
 
-* En los juegos en red mayormente se necesitan ejecutar órdenes en todos los dispositivos participantes. Este patrón facilita la serialización de las órdenes ya que sólo hay que serializar los objetos que las representan.
+- En los juegos en red mayormente se necesitan ejecutar órdenes en todos los dispositivos participantes. Este patrón facilita la serialización de las órdenes ya que sólo hay que serializar los objetos que las representan.
 
-* Muchos juegos añaden algún tipo de consola para interactuar directamente con el motor del juego empleando un intérprete de comandos. Mediante este patrón, se pueden sintetizar las órdenes como si hubieran sido producidas por el propio motor, facilitando la prueba y su depuración.
+- Muchos juegos añaden algún tipo de consola para interactuar directamente con el motor del juego empleando un intérprete de comandos. Mediante este patrón, se pueden sintetizar las órdenes como si hubieran sido producidas por el propio motor, facilitando la prueba y su depuración.
 
-* En el uso de macros también se hace necesario el uso de este patrón.
+- En el uso de macros también se hace necesario el uso de este patrón.
 
-* En el caso de los asistentes o _'wizards'_ este patrón permite desacoplar el interfaz de usuario de las órdenes ya que una vez configurada la secuencia y tipo de órdenes desde el asistente, cuando el usuario las acepta  es cuando se emite el mensaje y se ejecutan dichas órdenes.
+- En el caso de los asistentes o _'wizards'_ este patrón permite desacoplar el interfaz de usuario de las órdenes ya que una vez configurada la secuencia y tipo de órdenes desde el asistente, cuando el usuario las acepta  es cuando se emite el mensaje y se ejecutan dichas órdenes.
 
 #### Ejemplo de implementación
 
@@ -100,26 +110,32 @@ class Invoker {
 }
 ```
 
-#### Consideraciones
+#### Consideraciones finales
 
-* Como se ha comentado, este patrón desacopla el objeto que invoca la operación del objeto que sabe realizarla.
+- Como se ha comentado, este patrón desacopla el objeto que invoca la operación del objeto que sabe realizarla.
 
-* Las órdenes son objetos y por tanto pueden ser manipulados y extendidos como cualquier otro objeto. Además, permite que sean gestionados en colas de objetos o mantener un registro de mensajes.
+- Las órdenes son objetos y por tanto pueden ser manipulados y extendidos como cualquier otro objeto. Además, permite que sean gestionados en colas de objetos o mantener un registro de mensajes.
 
-* Las órdenes pueden incluir transacciones para garantizar la consistencia y estado de los objetos. Por tanto, existe la posibilidad de restaurar estados anteriores.
+- Las órdenes pueden incluir transacciones para garantizar la consistencia y estado de los objetos. Por tanto, existe la posibilidad de restaurar estados anteriores.
 
-* Al usar objetos se facilita el uso de parámetros a la hora de ejecutar las órdenes.
+- Al usar objetos se facilita el uso de parámetros a la hora de ejecutar las órdenes.
 
-* Este patrón es ampliamente utilizado para operaciones de deshacer/rehacer.
+- Este patrón es ampliamente utilizado para operaciones de deshacer/rehacer.
 
-* Una función de devolución de llamada se puede diseñar con este patrón.
+- Una función de devolución de llamada se puede diseñar con este patrón.
 
-#### Referencia
+#### Referencias
 
-<https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/04/28/patrones-de-comportamiento-ii-patron-command/>  
-<https://refactoring.guru/design-patterns/command>  
-<https://sourcemaking.com/design_patterns/command>  
+- <https://refactoring.guru/es/design-patterns/command>
+- <https://sourcemaking.com/design_patterns/command>
+- <https://www.baeldung.com/java-command-pattern>
+- <https://www.tutorialspoint.com/design_pattern/command_pattern.htm>
+- <https://www.digitalocean.com/community/tutorials/command-design-pattern>
+- <https://java-design-patterns.com/es/patterns/command/>
+- <https://danielggarcia.wordpress.com/2014/04/28/patrones-de-comportamiento-ii-patron-command/>
+- <https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>
+
+---
 
 ### - Patrón **_"Iterator"_** -
 
@@ -201,7 +217,9 @@ public class Client {
 <https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/04/14/patrones-de-comportamiento-i-patron-iterator/>  
 <https://refactoring.guru/design-patterns/iterator>  
-<https://sourcemaking.com/design_patterns/iterator>  
+<https://sourcemaking.com/design_patterns/iterator>
+
+---
 
 ### - Patrón **_"Observer"_** -
 
@@ -505,9 +523,9 @@ public class Client {
 
 El patrón **_'Strategy'_** es una buena alternativa a realizar subclases en las entidades que deben comportarse de forma diferente en función del algoritmo utilizado. Al extraer la heurística a una familia de algoritmos externos, obtenemos los siguientes beneficios:
 
-* Se aumenta la reutilización de dichos algoritmos.
-* Se evitan sentencias condicionales para elegir el comportamiento deseado.
-* Los clientes pueden elegir diferentes implementaciones para un mismo comportamiento deseado, lo que es útil para depuración y pruebas donde se pueden escoger implementaciones más simples y rápidas.
+- Se aumenta la reutilización de dichos algoritmos.
+- Se evitan sentencias condicionales para elegir el comportamiento deseado.
+- Los clientes pueden elegir diferentes implementaciones para un mismo comportamiento deseado, lo que es útil para depuración y pruebas donde se pueden escoger implementaciones más simples y rápidas.
 
 Este patrón es aconsejable, como ya hemos comentado, en situaciones en los que una misma operación (o conjunto de operaciones) puedan realizarse de formas distintas. A grosso modo, el patrón **_'Strategy'_** realiza una tarea bastante similar al patrón **_'Template Method'_**, salvo porque en este caso el algoritmo no tiene por qué contar con pasos en común y porque **_'Strategy'_** confía en la composición mientras que **_'Template Method'_** se basa en la herencia.
 

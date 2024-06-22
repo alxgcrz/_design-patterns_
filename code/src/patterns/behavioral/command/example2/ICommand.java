@@ -1,6 +1,6 @@
 package patterns.behavioral.command.example2;
 
-interface Command {
+interface ICommand {
 
     void action();
 
