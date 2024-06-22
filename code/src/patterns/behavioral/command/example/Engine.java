@@ -4,7 +4,7 @@ package patterns.behavioral.command.example;
 class Engine {
 
     // Execute
-    void execute(Command command) {
+    void execute(ICommand command) {
         command.execute();
     }
 

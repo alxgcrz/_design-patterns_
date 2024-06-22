@@ -4,7 +4,7 @@ package patterns.behavioral.command.example2;
 // Desconoce los comandos.
 class Invoker {
 
-    void execute(Command cmd) {
+    void execute(ICommand cmd) {
         cmd.action();
     }
 

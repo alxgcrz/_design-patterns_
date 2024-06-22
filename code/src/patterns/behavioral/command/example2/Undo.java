@@ -1,6 +1,6 @@
 package patterns.behavioral.command.example2;
 
-class Undo implements Command {
+class Undo implements ICommand {
 
     private Receiver receiver;
 
