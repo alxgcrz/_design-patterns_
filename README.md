@@ -23,11 +23,14 @@ Los patrones de comportamiento se definen como patrones de diseño de software q
 
 Los patrones de comportamiento son **_Chain of Responsibility_**, [**_Command_**](#command-pattern), **_Interpreter_**, **_Iterator_**, **_Mediator_**, **_Memento_**, **_Observer_**, **_State_**, **_Strategy_**, **_Template Method_** y **_Visitor_**.
 
+- <https://www.baeldung.com/java-behavioral-patterns-jdk>
+
 ### _"Command Pattern"_
 
 <!-- markdownlint-disable MD033 -->
 <div style="text-align: center;">
-  <img src=".//media//patterns//behavioral//command//command_header.png" alt="command_pattern_intro" style="width: 475px; height: auto;">
+  <img src=".//media//patterns//behavioral//command//command_header.png" alt="command_pattern_intro" width="475" height="auto">
+  <p style="font-size: 0.75em;">&#169; Refactoring Guru</p>
 </div>
 <!-- markdownlint-disable MD033 -->
 
@@ -47,12 +50,6 @@ Un **invocador** solo conoce la interfaz de comandos, pero desconoce totalmente 
 
 Un objeto de **comando** es capaz de llamar a un método particular en el receptor. La lógica de la acción a ejecutar está definida en el método en el **receptor** que es invocado por el **comando**.
 
-<!-- markdownlint-disable MD033 -->
-<div style="text-align: center;">
-  <img src=".//media//patterns//behavioral//command//command_diagram.png" alt="command_diagram_implementation" style="width: 475px; height: auto;">
-</div>
-<!-- markdownlint-disable MD033 -->
-
 El uso del patrón **_'Command'_** puede ser productivo en aquellas situaciones y escenarios en las que la relación directa entre el emisor de una orden y el receptor de la misma es insuficiente:
 
 - La invocación directa afecta sólo a emisor y receptor por lo que resulta complicado ampliar dicha relación a otros actores, como por ejemplo barras de progreso, ayuda contextual, etc...
@@ -69,7 +66,7 @@ El uso del patrón **_'Command'_** puede ser productivo en aquellas situaciones 
 
 - En el caso de los asistentes o _'wizards'_ este patrón permite desacoplar el interfaz de usuario de las órdenes ya que una vez configurada la secuencia y tipo de órdenes desde el asistente, cuando el usuario las acepta  es cuando se emite el mensaje y se ejecutan dichas órdenes.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 ```java
 interface ICommand {
@@ -137,11 +134,18 @@ class Invoker {
 
 ---
 
-### - Patrón **_"Iterator"_** -
+### _"Iterator Pattern"_
 
-![Iterator](.//media//patterns//behavioral//iterator_header.png)
+<!-- markdownlint-disable MD033 -->
+<div style="text-align: center;">
+  <img src=".//media//patterns//behavioral//iterator//iterator_header.png" alt="iterator_pattern_intro" width="475" height="auto">
+  <p style="font-size: 0.75em;">&#169; Refactoring Guru</p>
+</div>
+<!-- markdownlint-disable MD033 -->
 
-**GoF**: Proporcionar una forma de acceder a los elementos de un objeto agregado de forma secuencial sin exponer su representación subyacente.
+> _Proporcionar una forma de acceder a los elementos de un objeto agregado de forma secuencial sin exponer su representación subyacente._
+>
+> _-- GoF_
 
 #### Concepto
 
@@ -153,13 +157,11 @@ El problema de introducir este objeto iterador reside en que los clientes necesi
 
 Diferentes iteradores pueden presentar diferentes tipos de recorrido sobre la estructura. No sólo eso, sino que podrían incorporar funcionalidad extra como por ejemplo filtrado de elementos, etc..
 
-![Concepto](.//media//patterns//behavioral//iterator_diagram.png)
-
 El uso del patrón **_'Iterator'_** es muy común ya que manejar colecciones de datos es algo muy habitual en el desarrollo de aplicaciones. Listas, pilas y, sobre todo, árboles son ejemplos de estructuras de datos muy presentes en los juegos y se utilizan de forma intensiva.
 
 Una operación muy habitual es recorrer las estructuras para analizar y/o buscar los datos que contienen. Es posible que sea necesario recorrer la estructura de forma secuencial, de dos en dos o, simplemente, de forma aleatoria. Los clientes suelen implementar el método concreto con el que desean recorrer la estructura por lo que puede ser un problema si, por ejemplo, se desea recorrer una misma estructura de datos de varias formas distintas. Conforme aumenta las combinaciones entre los tipos de estructuras y métodos de acceso, el problema se agrava.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 La estructura de datos es la encargada de crear el iterador adecuado para ser accedida a través del método `iterator()`. Una vez que el cliente ha obtenido el iterador, puede utilizar los métodos de acceso que ofrecen tales como `next()` (para obtener el siguiente elemento) o `isDone()` para comprobar si existen más elementos.
 
@@ -214,36 +216,44 @@ public class Client {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/04/14/patrones-de-comportamiento-i-patron-iterator/>  
-<https://refactoring.guru/design-patterns/iterator>  
-<https://sourcemaking.com/design_patterns/iterator>
+- <https://refactoring.guru/es/design-patterns/iterator>
+- <https://sourcemaking.com/design_patterns/iterator>
+- <https://www.tutorialspoint.com/design_pattern/iterator_pattern.htm>
+- <https://www.digitalocean.com/community/tutorials/iterator-design-pattern-java>
+- <https://java-design-patterns.com/es/patterns/iterator>
+- <https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/04/14/patrones-de-comportamiento-i-patron-iterator/>  
 
 ---
 
-### - Patrón **_"Observer"_** -
+### _"Observer Pattern"_
 
-![Observer](.//media//patterns//behavioral//observer_header.png)
+<!-- markdownlint-disable MD033 -->
+<div style="text-align: center;">
+  <img src=".//media//patterns//behavioral//observer//observer_header.png" alt="observer_pattern_intro" width="475" height="auto">
+  <p style="font-size: 0.75em;">&#169; Refactoring Guru</p>
+</div>
+<!-- markdownlint-disable MD033 -->
 
-**GoF**: Define una dependencia de uno a muchos entre objetos para que cuando un objeto cambie de estado, todos sus dependientes sean notificados y actualizados automáticamente.
+> _Define una dependencia de uno a muchos entre objetos para que cuando un objeto cambie de estado, todos sus dependientes sean notificados y actualizados automáticamente._
+>
+> _-- GoF_
 
 #### Concepto
 
 El patrón **_'Observer'_** se utiliza para definir relaciones 1 a _n_ de forma que un objeto pueda notificar y/o actualizar el estado de otros automáticamente.
 
-El patrón **_'Observer'_** proporciona un diseño con **poco acomplamiento** entre los _observadores_ y el objeto _observado_.
+Este patrón proporciona un diseño con **poco acomplamiento** entre los _observadores_ y el objeto _observado_.
 
-Siguiendo la filosofía de _publicación/suscripción_, los objetos observadores se deben registrar en el objeto observado llamado **sujeto** pasándole una referencia de si mismo. El sujeto mantiene una lista de las referencias de los observadores. Cuando un observador ya no necesita ser notificado simplemente se borra de la lista de observadores.
+Siguiendo la filosofía de **_publicación/suscripción_**, los objetos observadores se deben registrar en el objeto observado llamado sujeto pasándole una referencia de si mismo. El sujeto mantiene una lista de las referencias de los observadores. Cuando un observador ya no necesita ser notificado simplemente se borra de la lista de observadores.
 
-Además, los observadores a su vez están obligados a implementar unos métodos determinados mediante los cuales el **sujeto** es capaz de notificar a los observadores suscritos los cambios que sufre para que todos ellos tengan constancia. Por tanto, cuando el evento oportuno suceda, el sujeto recibirá una invocación y será el encargado de "notificar" a todos los elementos suscritos a él.
+Además, los observadores a su vez están obligados a implementar unos métodos determinados mediante los cuales el sujeto es capaz de notificar a los observadores suscritos los cambios que sufre para que todos ellos tengan constancia.
 
-Los observadores que reciben la invocación pueden realizar las acciones pertinentes.
-
-![Concepto](.//media//patterns//behavioral//observer_diagram.png)
+Por tanto, cuando el evento oportuno suceda, el sujeto recibirá una invocación y será el encargado de "notificar" a todos los elementos suscritos a él. Los observadores que reciben la notificación pueden realizar las acciones pertinentes.
 
 Puede pensarse en aplicar este patrón cuando una modificación en el estado de un objeto requiere cambios de otros, y no se desea que se conozca el número de objetos que deben ser cambiados. También cuando queremos que un objeto sea capaz de notificar a otros objetos sin hacer ninguna suposición acerca de los objetos notificados y cuando una abstracción tiene dos aspectos diferentes, que dependen uno del otro; si encapsulamos estos aspectos en objetos separados permitiremos su variación y reutilización de modo independiente.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 El siguiente ejemplo es una situación en que tenemos un único observador y un único sujeto. El patrón se puede adaptar para los casos en que haya uno o varios observadores y uno o varios sujetos.
 
@@ -291,12 +301,16 @@ class Observer {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/06/02/patrones-de-comportamiento-vi-patron-observer/>  
-<https://refactoring.guru/design-patterns/observer>  
-<https://sourcemaking.com/design_patterns/observer>  
+- <https://refactoring.guru/es/design-patterns/observer>
+- <https://sourcemaking.com/design_patterns/observer>
+- <https://www.baeldung.com/java-observer-pattern>
+- <https://www.tutorialspoint.com/design_pattern/observer_pattern.htm>
+- <https://www.digitalocean.com/community/tutorials/observer-design-pattern-in-java>
+- <https://java-design-patterns.com/es/patterns/observer/>
+- <https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>
+- <https://danielggarcia.wordpress.com/2014/06/02/patrones-de-comportamiento-vi-patron-observer/>
 
-### - Patrón **_"State"_** -
+### _"State Pattern"_
 
 ![State](.//media//patterns//behavioral//state_header.png)
 
@@ -312,7 +326,7 @@ Por ejemplo, los estados de un personaje de un videojuego podrían ser: de pie, 
 
 El patrón **_'State'_** permite encapsular el mecanismo de las transiciones que sufre un objeto a partir de los estímulos externos.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 A continuación se muestra un ejemplo de aplicación del mismo. La idea es crear una clase abstracta o interfaz que representa al estado del personaje. En ella se definen las mismas operaciones que puede recibir el personaje con una implementación por defecto. En este caso, la implementación es vacía.
 
@@ -447,7 +461,7 @@ Un sistema con muchos estados o si el número se incrementa significativamente s
 <https://refactoring.guru/design-patterns/state>  
 <https://sourcemaking.com/design_patterns/state>  
 
-### - Patrón **_"Strategy"_** -
+### _"Strategy Pattern"_
 
 ![Strategy](.//media//patterns//behavioral//strategy_header.png)
 
@@ -465,7 +479,7 @@ Otro ejemplo para entender este patrón es el de un protagonista de un videojueg
 
 Da igual que nuestro soldado porte un rifle, una pistola o un fusil: los detalles de cada estrategia estarán encapsulados dentro de cada una de las clases intercambiables que representan las armas. Nuestra clase cliente (el soldado) únicamente debe preocuparse de las acciones comunes a todas ellas: atacar, recargar y cambiar de arma. Éste último método, de hecho, será el encargado de realizar la operación de "cambio de estrategia" que forma parte del patrón.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 Mediante el uso de la herencia, el patrón **_'Strategy'_** permite encapsular diferentes algoritmos para que los clientes puedan utilizarlos de forma transparente.
 
@@ -524,19 +538,21 @@ public class Client {
 El patrón **_'Strategy'_** es una buena alternativa a realizar subclases en las entidades que deben comportarse de forma diferente en función del algoritmo utilizado. Al extraer la heurística a una familia de algoritmos externos, obtenemos los siguientes beneficios:
 
 - Se aumenta la reutilización de dichos algoritmos.
+
 - Se evitan sentencias condicionales para elegir el comportamiento deseado.
+
 - Los clientes pueden elegir diferentes implementaciones para un mismo comportamiento deseado, lo que es útil para depuración y pruebas donde se pueden escoger implementaciones más simples y rápidas.
 
 Este patrón es aconsejable, como ya hemos comentado, en situaciones en los que una misma operación (o conjunto de operaciones) puedan realizarse de formas distintas. A grosso modo, el patrón **_'Strategy'_** realiza una tarea bastante similar al patrón **_'Template Method'_**, salvo porque en este caso el algoritmo no tiene por qué contar con pasos en común y porque **_'Strategy'_** confía en la composición mientras que **_'Template Method'_** se basa en la herencia.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/05/12/patrones-de-comportamiento-iv-patron-strategy/>  
-<https://refactoring.guru/design-patterns/strategy>  
-<https://sourcemaking.com/design_patterns/strategy>  
+- <https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/05/12/patrones-de-comportamiento-iv-patron-strategy/>  
+- <https://refactoring.guru/design-patterns/strategy>  
+- <https://sourcemaking.com/design_patterns/strategy>  
 
-### - Patrón **_"Template Method"_** -
+### _"Template Method Pattern"_
 
 ![Template-Method](.//media//patterns//behavioral//template_method_header.png)
 
@@ -554,13 +570,13 @@ El patrón **_'Template Method'_** consiste extraer este comportamiento común e
 
 Si el patrón **_'Command'_** nos permite encapsular una invocación a un método, el patrón **_'Template Method'_** establece una forma de encapsular algoritmos. Este patrón se basa en un principio muy sencillo: si un algoritmo puede aplicarse a varios supuestos en los que únicamente cambie un pequeño número de operaciones, la idea será utilizar una clase para modelarlo a través de sus operaciones. Esta clase base se encargará de definir los pasos comunes del algoritmo, mientras que las clases que hereden de ella implementarán los detalles propios de cada caso concreto, es decir, el código específico para cada caso.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
-* Se declara una clase abstracta, que será la plantilla o modelo. Esta clase definirá una serie de funciones y métodos. Aquellas que sean comunes estarán implementadas. Aquellas que dependan de cada caso concreto, se declararán como abstractas, obligando a las clases hijas a implementarlas.
+- Se declara una clase abstracta, que será la plantilla o modelo. Esta clase definirá una serie de funciones y métodos. Aquellas que sean comunes estarán implementadas. Aquellas que dependan de cada caso concreto, se declararán como abstractas, obligando a las clases hijas a implementarlas.
 
-* Cada clase derivada implementará los métodos específicos, acudiendo a la clase base para ejecutar el código común.
+- Cada clase derivada implementará los métodos específicos, acudiendo a la clase base para ejecutar el código común.
 
-* La clase base también se encargará de la lógica del algoritmo, ejecutando los pasos en un orden preestablecido (las clases hijas no deberían poder modificar el algoritmo, únicamente definir la funcionalidad específica que tienen que implementar).
+- La clase base también se encargará de la lógica del algoritmo, ejecutando los pasos en un orden preestablecido (las clases hijas no deberían poder modificar el algoritmo, únicamente definir la funcionalidad específica que tienen que implementar).
 
 Dado que la clase padre es la que se encarga de llamar los métodos de las clases derivadas (los pasos del algoritmo estarán implementado en la clase base), se trata de una aplicación manifiesta del **'Principio de Inversión de Dependencias'**: la clase base no tiene por qué saber nada acerca de sus hijas, pero aún así, se encargará de invocar su funcionalidad cuando sea necesario. El **'Principio de Hollywood'** (“no nos llames, nosotros te llamaremos”) vuelve a entrar en escena.
 
@@ -649,20 +665,20 @@ class CheckersPlayer extends GamePlayer {
 
 #### Consideraciones
 
-* Utilizando el patrón **_'Template Method'_** se suelen obtener estructuras altamente reutilizables. Esta reutilización de código es el objetivo primordial de este patrón. Es por ello que es ampliamente utilizado en bibliotecas de clases.
+- Utilizando el patrón **_'Template Method'_** se suelen obtener estructuras altamente reutilizables. Esta reutilización de código es el objetivo primordial de este patrón. Es por ello que es ampliamente utilizado en bibliotecas de clases.
 
-* Introduce el concepto de operaciones _'hook'_ que, en caso de no estar implementadas en las clases hijas, tienen una implementación por defecto. Las clases hijas pueden sobreescribirlas para añadir su propia funcionalidad.
+- Introduce el concepto de operaciones _'hook'_ que, en caso de no estar implementadas en las clases hijas, tienen una implementación por defecto. Las clases hijas pueden sobreescribirlas para añadir su propia funcionalidad.
 
-* Hay que minimizar el número de métodos abstractos (métodos sin cuerpo). De lo contrario, cada una de las subclases debe sobreescribirlos y el proceso global perderá la efectividad de este patrón de diseño.
+- Hay que minimizar el número de métodos abstractos (métodos sin cuerpo). De lo contrario, cada una de las subclases debe sobreescribirlos y el proceso global perderá la efectividad de este patrón de diseño.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/05/05/patrones-de-comportamiento-iii-template-method/>  
-<https://refactoring.guru/design-patterns/template-method>  
-<https://sourcemaking.com/design_patterns/template_method>  
+- <https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/05/05/patrones-de-comportamiento-iii-template-method/>  
+- <https://refactoring.guru/design-patterns/template-method>  
+- <https://sourcemaking.com/design_patterns/template_method>  
 
-### - Patrón **_"Visitor"_** -
+### _"Visitor Pattern"_
 
 ![Visitor](.//media//patterns//behavioral//visitor_header.png)
 
@@ -676,9 +692,9 @@ En el diseño de un programa, normalmente se obtienen jerarquías de objetos a t
 
 En el patrón **_'Visitor'_** se distinguen dos participantes:
 
-* **Visitables**: son los elementos de la estructura de objetos que aceptan a un determinado visitante y que le proporcionan toda la información a éste para realizar una determinada operación. Definen una operación `accept(v:Visitor)` que toma un visitante como argumento.
+- **Visitables**: son los elementos de la estructura de objetos que aceptan a un determinado visitante y que le proporcionan toda la información a éste para realizar una determinada operación. Definen una operación `accept(v:Visitor)` que toma un visitante como argumento.
 
-* **Visitantes:** jerarquía de objetos que realizan una operación determinada sobre dichos elementos.
+- **Visitantes:** jerarquía de objetos que realizan una operación determinada sobre dichos elementos.
 
 ![Concepto](.//media//patterns//behavioral//visitor_diagram.png)
 
@@ -686,7 +702,7 @@ Cada visitante concreto realiza una operación sobre la estructura de objetos. E
 
 Sin embargo, lo importante del patrón **_'Visitor'_** es que se pueden añadir nuevos tipos de visitantes concretos y, por lo tanto, realizar nuevas operaciones sobre la estructura sin la necesidad de modificar nada en la propia estructura. Por tanto se seguiría el **Principio 'Open/Closed'** (abierto a la extensión, cerrado a la modificación).
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 ```java
 interface Element {
@@ -737,19 +753,19 @@ class ConcreteVisitor2 implements Visitor {
 
 #### Consideraciones
 
-* El patrón **_'Visitor'_** es muy conveniente para recorrer estructuras arbóreas y realizar operaciones en base a los datos almacenados.
+- El patrón **_'Visitor'_** es muy conveniente para recorrer estructuras arbóreas y realizar operaciones en base a los datos almacenados.
 
-* La forma en que se recorra la estructura influirá notablemente en el rendimiento del análisis de la estructura. Se puede hacer uso del patrón **_'Iterator'_** para decidir cómo escoger el siguiente elemento.
+- La forma en que se recorra la estructura influirá notablemente en el rendimiento del análisis de la estructura. Se puede hacer uso del patrón **_'Iterator'_** para decidir cómo escoger el siguiente elemento.
 
-* Uno de los problemas de este patrón es que no es recomendable si la estructura  de objetos cambia frecuentemente o es necesario añadir nuevos tipos de objetos de forma habitual. Cada nuevo objeto que sea susceptible de ser visitado puede provocar grandes cambios en la jerarquía de los visitantes.
+- Uno de los problemas de este patrón es que no es recomendable si la estructura  de objetos cambia frecuentemente o es necesario añadir nuevos tipos de objetos de forma habitual. Cada nuevo objeto que sea susceptible de ser visitado puede provocar grandes cambios en la jerarquía de los visitantes.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://refactoring.guru/design-patterns/visitor>  
-<https://sourcemaking.com/design_patterns/visitor>  
+- <https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://refactoring.guru/design-patterns/visitor>  
+- <https://sourcemaking.com/design_patterns/visitor>  
 
-### - Patrón **_"Memento"_** -
+### _"Memento Pattern"_
 
 ![Memento](.//media//patterns//behavioral//memento_header.png)
 
@@ -761,15 +777,15 @@ Es un patrón de diseño cuya finalidad es almacenar el estado de un objeto (o d
 
 Se usa este patrón cuando se quiere poder restaurar el sistema desde estados pasados y por otra parte, es usado cuando se desea facilitar el hacer y deshacer de determinadas operaciones, para lo que habrá que guardar los estados anteriores de los objetos sobre los que se opere (o bien recordar los cambios de forma incremental).
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 El patrón **_'Memento'_** define tres roles principales:
 
-* _**Originator**_: El _'originator'_ puede producir instantáneas de su propio estado, así como restaurar su estado a partir de las instantáneas cuando sea necesario.
+- _**Originator**_: El _'originator'_ puede producir instantáneas de su propio estado, así como restaurar su estado a partir de las instantáneas cuando sea necesario.
 
-* _**Caretaker**_: El _'caretaker'_ sabe no solo "cuándo" y "por qué" capturar el estado del _'originator'_, sino también cuándo debe restaurarse el estado. Puede realizar un seguimiento del historial del _'originator'_ almacenando una pila de _'mementos'_. Cuando el _'originator'_ tiene que retroceder en la historia, el _'caretaker'_ busca el recuerdo más alto de la pila y lo pasa al método de restauración del _'originator'_.
+- _**Caretaker**_: El _'caretaker'_ sabe no solo "cuándo" y "por qué" capturar el estado del _'originator'_, sino también cuándo debe restaurarse el estado. Puede realizar un seguimiento del historial del _'originator'_ almacenando una pila de _'mementos'_. Cuando el _'originator'_ tiene que retroceder en la historia, el _'caretaker'_ busca el recuerdo más alto de la pila y lo pasa al método de restauración del _'originator'_.
 
-* _**Memento**_: Es un objeto de valor que actúa como una instantánea del estado del _'originator'_. Es una práctica común hacer que el _'memento'_ sea inmutable y pasar los datos solo una vez, a través del constructor.
+- _**Memento**_: Es un objeto de valor que actúa como una instantánea del estado del _'originator'_. Es una práctica común hacer que el _'memento'_ sea inmutable y pasar los datos solo una vez, a través del constructor.
 
 ![Implementación](.//media//patterns//behavioral//memento_diagram.jpg)
 
@@ -832,22 +848,22 @@ class Caretaker {
 
 #### Consideraciones
 
-* En un escenario real en que puede haber varios puntos de restauración o _'snapshots'_ del estado de un objeto en varias instancias de tiempo se puede emplear una estructura como un `ArrayList` o similares.
+- En un escenario real en que puede haber varios puntos de restauración o _'snapshots'_ del estado de un objeto en varias instancias de tiempo se puede emplear una estructura como un `ArrayList` o similares.
 
-* Este patrón se utiliza cuando queremos implementar operaciones como _'undo'_ o _'rollback'_.
+- Este patrón se utiliza cuando queremos implementar operaciones como _'undo'_ o _'rollback'_.
 
-* Un número alto de puntos de restauración o _'snapshots'_ requiere espacio extra de almacenamiento.
+- Un número alto de puntos de restauración o _'snapshots'_ requiere espacio extra de almacenamiento.
 
-* Este patrón se puede implementar utilizando la serialización, que es bastante común en Java. Si bien no es la única ni la forma más eficiente de hacer instantáneas del estado de un objeto, todavía permite almacenar copias de seguridad del estado mientras protege la estructura del _'originator'_ frente a otros objetos.
+- Este patrón se puede implementar utilizando la serialización, que es bastante común en Java. Si bien no es la única ni la forma más eficiente de hacer instantáneas del estado de un objeto, todavía permite almacenar copias de seguridad del estado mientras protege la estructura del _'originator'_ frente a otros objetos.
 
 #### Referencias
 
-<https://en.wikipedia.org/wiki/Memento_pattern>  
-<https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)>  
-<https://sourcemaking.com/design_patterns/memento>  
-<https://refactoring.guru/design-patterns/memento>  
+- <https://en.wikipedia.org/wiki/Memento_pattern>  
+- <https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)>  
+- <https://sourcemaking.com/design_patterns/memento>  
+- <https://refactoring.guru/design-patterns/memento>  
 
-### - Patrón **_"Mediator"_** -
+### _"Mediator Pattern"_
 
 ![Mediator](.//media//patterns//behavioral//mediator_header.png)
 
@@ -861,7 +877,7 @@ Definir un conjunto de objetos que interactúan accediendo y actualizándose ent
 
 El patrón **_'Mediator'_** define un objeto que encapsula cómo un conjunto de objetos interactúan. De esta forma los objetos no se comunican de forma directa entre ellos, sino que se comunican mediante el mediador. El mediador busca reducir el acoplamiento evitando que los objetos se relacionen entre ellos de forma explícita y permitiendo cambiar la interacción entre un conjunto de objetos de forma independiente.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 La esencia del patrón **_'Mediator'_** es "definir un objeto que encapsule cómo interactúa un conjunto de objetos". Promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y permite que su interacción se varíe de forma independiente. Las clases de clientes pueden usar el mediador para enviar mensajes a otros clientes y pueden recibir mensajes de otros clientes a través de un evento en la clase de mediadores.
 
@@ -869,13 +885,13 @@ La esencia del patrón **_'Mediator'_** es "definir un objeto que encapsule cóm
 
 En el ejemplo participan:
 
-* _**Mediator**_: Define la interfaz para la comunicación entre objetos de tipo `Colleague`.
+- _**Mediator**_: Define la interfaz para la comunicación entre objetos de tipo `Colleague`.
 
-* _**ConcreteMediator**_: implementa la interfaz del mediador y coordina la comunicación entre los objetos de tipo `Colleague`. Es consciente de todos los objetos y sus propósitos con respecto a la intercomunicación.
+- _**ConcreteMediator**_: implementa la interfaz del mediador y coordina la comunicación entre los objetos de tipo `Colleague`. Es consciente de todos los objetos y sus propósitos con respecto a la intercomunicación.
 
-* _**Colleague**_: Define la interfaz para la comunicación con otros objetos `Colleague` a través de su mediador.
+- _**Colleague**_: Define la interfaz para la comunicación con otros objetos `Colleague` a través de su mediador.
 
-* _**ConcreteColleague**_: implementa la interfaz `Colleague` y se comunica con otros objetos a través de su mediador
+- _**ConcreteColleague**_: implementa la interfaz `Colleague` y se comunica con otros objetos a través de su mediador
 
 ```java
 interface Mediator {
@@ -931,16 +947,16 @@ class ConcreteColleague extends Colleague {
 
 #### Consideraciones
 
-* El patrón **_'Facade'_** y **_'Mediator'_** son muy similares ya que ambos tratan de organizar la colaboración entre un montón de clases estrechamente acopladas. Sin embargo en el patrón **_'Facade'_** los objetos pueden comunicarse entre sí mientras que en el patrón **_'Mediator'_** los objetos sólo se comunican con el mediador.
+- El patrón **_'Facade'_** y **_'Mediator'_** son muy similares ya que ambos tratan de organizar la colaboración entre un montón de clases estrechamente acopladas. Sin embargo en el patrón **_'Facade'_** los objetos pueden comunicarse entre sí mientras que en el patrón **_'Mediator'_** los objetos sólo se comunican con el mediador.
 
 #### Referencias
 
-<https://es.wikipedia.org/wiki/Mediator_(patr%C3%B3n_de_dise%C3%B1o)>  
-<https://en.wikipedia.org/wiki/Mediator_pattern>  
-<https://sourcemaking.com/design_patterns/mediator>  
-<https://refactoring.guru/design-patterns/mediator>  
+- <https://es.wikipedia.org/wiki/Mediator_(patr%C3%B3n_de_dise%C3%B1o)>  
+- <https://en.wikipedia.org/wiki/Mediator_pattern>  
+- <https://sourcemaking.com/design_patterns/mediator>  
+- <https://refactoring.guru/design-patterns/mediator>  
 
-### - Patrón **_"Interpreter"_** -
+### _"Interpreter Pattern"_
 
 **GoF**: Dado un lenguaje, defina una representación para su gramática junto con un intérprete que use la representación para interpretar oraciones en el lenguaje.
 
@@ -960,11 +976,11 @@ La sentencia del lenguaje se representa mediante un árbol de sintaxis abstracta
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Interpreter_(patr%C3%B3n_de_dise%C3%B1o)>  
-<https://en.wikipedia.org/wiki/Interpreter_pattern>  
-<https://sourcemaking.com/design_patterns/interpreter>  
+- <https://es.wikipedia.org/wiki/Interpreter_(patr%C3%B3n_de_dise%C3%B1o)>  
+- <https://en.wikipedia.org/wiki/Interpreter_pattern>  
+- <https://sourcemaking.com/design_patterns/interpreter>  
 
-### - Patrón **_"Chain of Responsibility"_** -
+### _"Chain of Responsibility Pattern"_
 
 ![Chain of Responsibility](.//media//patterns//behavioral//chain-of-responsibility_diagram.png)
 
@@ -978,29 +994,29 @@ Este patrón evita acoplar el emisor de una petición a su receptor dando a más
 
 Este patrón puede aplicarse cuando:
 
-* hay más de un objeto que puede manejar una petición, y el manejador no se conoce a priori, sino que debería determinarse automáticamente.
+- hay más de un objeto que puede manejar una petición, y el manejador no se conoce a priori, sino que debería determinarse automáticamente.
 
-* se quiere enviar una petición a un objeto entre varios sin especificar explícitamente el receptor.
+- se quiere enviar una petición a un objeto entre varios sin especificar explícitamente el receptor.
 
-* el conjunto de objetos que pueden tratar una petición debería ser especificado dinámicamente.
+- el conjunto de objetos que pueden tratar una petición debería ser especificado dinámicamente.
 
 Las ventajas de este patrón son:
 
-* **Reduce el acoplamiento**. El patrón libera a un objeto de tener que saber qué otro objeto maneja una petición. Ni el receptor ni el emisor se conocen explícitamente entre ellos, y un objeto de la cadena tampoco tiene que conocer la estructura de ésta. Por lo tanto, simplifica las interconexiones entre objetos. En vez de que los objetos mantengan referencias a todos los posibles receptores, sólo tienen una única referencia a su sucesor.
+- **Reduce el acoplamiento**. El patrón libera a un objeto de tener que saber qué otro objeto maneja una petición. Ni el receptor ni el emisor se conocen explícitamente entre ellos, y un objeto de la cadena tampoco tiene que conocer la estructura de ésta. Por lo tanto, simplifica las interconexiones entre objetos. En vez de que los objetos mantengan referencias a todos los posibles receptores, sólo tienen una única referencia a su sucesor.
 
-* **Añade flexibilidad para asignar responsabilidades a objetos**. Se pueden añadir o cambiar responsabilidades entre objetos para tratar una petición modificando la cadena de ejecución en tiempo de ejecución. Esto se puede combinar con la herencia para especializar los manejadores estáticamente.
+- **Añade flexibilidad para asignar responsabilidades a objetos**. Se pueden añadir o cambiar responsabilidades entre objetos para tratar una petición modificando la cadena de ejecución en tiempo de ejecución. Esto se puede combinar con la herencia para especializar los manejadores estáticamente.
 
 Por otra parte presenta el inconveniente de no garantizar la recepción. Dado que las peticiones no tienen un receptor explícito, no hay garantías de que sean manejadas. La petición puede alcanzar el final de la cadena sin haber sido procesada.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 En este patrón participan:
 
-* **Manejador**: define una interfaz para tratar las peticiones. Opcionalmente, implementa el enlace al sucesor.
+- **Manejador**: define una interfaz para tratar las peticiones. Opcionalmente, implementa el enlace al sucesor.
 
-* **ManejadorConcreto**: trata las peticiones de las que es responsable; si puede manejar la petición, lo hace; en caso contrario la reenvía a su sucesor.
+- **ManejadorConcreto**: trata las peticiones de las que es responsable; si puede manejar la petición, lo hace; en caso contrario la reenvía a su sucesor.
 
-* **Cliente**: inicializa la petición a un manejador concreto de la cadena.
+- **Cliente**: inicializa la petición a un manejador concreto de la cadena.
 
 ![Diagrama](.//media//patterns//behavioral//chain-of-responsibility_diagram.jpg)
 
@@ -1061,26 +1077,28 @@ class Peticion {
 
 #### Aplicabilidad
 
-* Use el patrón cuando se espera que su programa procese diferentes tipos de solicitudes de varias maneras, pero los tipos exactos de solicitudes y sus secuencias son desconocidos de antemano. El patrón le permite vincular varios manejadores en una cadena y, al recibir una solicitud, "preguntar" a cada manejador si puede procesarlo. De esta manera todos los manejadores tienen la oportunidad de procesar la solicitud.
+- Use el patrón cuando se espera que su programa procese diferentes tipos de solicitudes de varias maneras, pero los tipos exactos de solicitudes y sus secuencias son desconocidos de antemano. El patrón le permite vincular varios manejadores en una cadena y, al recibir una solicitud, "preguntar" a cada manejador si puede procesarlo. De esta manera todos los manejadores tienen la oportunidad de procesar la solicitud.
 
-* Cuando sea esencial ejecutar varios manejadores en un orden particular. Como los manejadores de la cadena pueden vincularse en cualquier orden, todas las solicitudes pasarán a través de la cadena exactamente como deben hacerlo.
+- Cuando sea esencial ejecutar varios manejadores en un orden particular. Como los manejadores de la cadena pueden vincularse en cualquier orden, todas las solicitudes pasarán a través de la cadena exactamente como deben hacerlo.
 
-* Cuando el conjunto de manejadores y su orden deban cambiar en el tiempo de ejecución. Si se proporcionan _'setters'_ para un campo de referencia dentro de las clases de manejadores, podrá insertar, eliminar o ordenar los manejadores dinámicamente.
+- Cuando el conjunto de manejadores y su orden deban cambiar en el tiempo de ejecución. Si se proporcionan _'setters'_ para un campo de referencia dentro de las clases de manejadores, podrá insertar, eliminar o ordenar los manejadores dinámicamente.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Cadena_de_responsabilidad>  
-<https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern>  
-<https://refactoring.guru/design-patterns/chain-of-responsibility>  
-<https://sourcemaking.com/design_patterns/chain_of_responsibility>  
+- <https://es.wikipedia.org/wiki/Cadena_de_responsabilidad>  
+- <https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern>  
+- <https://refactoring.guru/design-patterns/chain-of-responsibility>  
+- <https://sourcemaking.com/design_patterns/chain_of_responsibility>  
 
 ## _Creational Patterns_
 
 Los patrones de creación corresponden a patrones de diseño de software que solucionan problemas de creación de instancias. Nos ayudan a encapsular y abstraer dicha creación.
 
-Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _Prototype_ y _Singleton_.
+Los patrones creacionales son **_Abstract Factory_**, **_Builder_**, **_Factory Method_**, **_Prototype_** y **_Singleton_**.
 
-### - Patrón **_"Builder"_** -
+- <https://www.baeldung.com/creational-design-patterns>
+
+### _"Builder Pattern"_
 
 ![Builder](.//media//patterns//creational//builder_header.png)
 
@@ -1094,29 +1112,35 @@ Crear y ensamblar las partes de un objeto complejo directamente dentro de una cl
 
 Ventajas de utilizar este patrón:
 
-* Reduce el acoplamiento.
-* Permite variar la representación interna de un producto.
-* Encapsula el código para la construcción y la representación.
-* Proporciona control sobre los pasos del proceso de construcción.
+- Reduce el acoplamiento.
+
+- Permite variar la representación interna de un producto.
+
+- Encapsula el código para la construcción y la representación.
+
+- Proporciona control sobre los pasos del proceso de construcción.
 
 Desventajas del patrón:
 
-* Requiere crear un constructor concreto para cada tipo diferente de producto.
-* Requiere que las clases del constructor sean mutables.
-* No se garantiza la inicialización de los datos de los miembros de la clase.
-* La inyección de dependencia puede ser menos compatible.
+- Requiere crear un constructor concreto para cada tipo diferente de producto.
 
-#### Ejemplo de implementación
+- Requiere que las clases del constructor sean mutables.
+
+- No se garantiza la inicialización de los datos de los miembros de la clase.
+
+- La inyección de dependencia puede ser menos compatible.
+
+#### Caso práctico
 
 ![Implementación](.//media//patterns//creational//builder_diagram.png)
 
-* _**Builder**_: Interfaz abstracta para crear objetos (producto).
+- _**Builder**_: Interfaz abstracta para crear objetos (producto).
 
-* _**ConcreteBuilder**_: Proporciona implementación para _'Builder'_. Es un objeto capaz de construir otros objetos. Construye y ensambla partes para construir los objetos.
+- _**ConcreteBuilder**_: Proporciona implementación para _'Builder'_. Es un objeto capaz de construir otros objetos. Construye y ensambla partes para construir los objetos.
 
-* _**Product**_: el objeto complejo que se construye.
+- _**Product**_: el objeto complejo que se construye.
 
-* _**Director**_: invoca el objeto _'Builder'_ para la construcción del producto.
+- _**Director**_: invoca el objeto _'Builder'_ para la construcción del producto.
 
 ```java
 interface Builder {
@@ -1181,13 +1205,13 @@ public class Director {
 
 #### Referencias
 
-<https://en.wikipedia.org/wiki/Builder_pattern>  
-<https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)>  
-<https://refactoring.guru/design-patterns/builder>  
-<https://sourcemaking.com/design_patterns/builder>  
-<https://danielggarcia.wordpress.com/2014/02/19/patrones-de-creacion-ii-patron-builder-constructor/>  
+- <https://en.wikipedia.org/wiki/Builder_pattern>  
+- <https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)>  
+- <https://refactoring.guru/design-patterns/builder>  
+- <https://sourcemaking.com/design_patterns/builder>  
+- <https://danielggarcia.wordpress.com/2014/02/19/patrones-de-creacion-ii-patron-builder-constructor/>  
 
-### - Patrón **_"Abstract Factory"_** -
+### _"Abstract Factory Pattern"_
 
 ![Abstract Factory](.//media//patterns//creational//abstract-factory_header.png)
 
@@ -1199,16 +1223,19 @@ El patrón **_'Abstract Factory'_** permite crear diferentes tipos o familias de
 
 El patrón **_'Abstract Factory'_** recomienda crear las siguientes entidades:
 
-* **Factoría abstracta** que defina una interfaz para que los clientes puedan crear los distintos tipos de objetos.
+- **Factoría abstracta** que defina una interfaz para que los clientes puedan crear los distintos tipos de objetos.
 
-* **Factorías concretas** que realmente crean las instancias finales y que son hijas de la factoría abstracta.
+- **Factorías concretas** que realmente crean las instancias finales y que son hijas de la factoría abstracta.
 
 El patrón **_'Abstract Factory'_** puede ser aplicable cuando:
 
-* el sistema de creación de instancias debe aislarse.
-* es necesaria la creación de varias instancias de objetos para tener el sistema configurado.
-* cuando la creación de instancias implican la imposición de restricciones u otras particularidades propias de los objetos que se construyen.
-* los objetos que deben construirse en las factorías no cambian excesivamente en el tiempo.
+- el sistema de creación de instancias debe aislarse.
+
+- es necesaria la creación de varias instancias de objetos para tener el sistema configurado.
+
+- cuando la creación de instancias implican la imposición de restricciones u otras particularidades propias de los objetos que se construyen.
+
+- los objetos que deben construirse en las factorías no cambian excesivamente en el tiempo.
 
 Añadir nuevos tipos implica cambiar todas las factorías. Por ello, se recomienda aplicar este patrón sobre diseños con un cierto grado de estabilidad.
 
@@ -1220,7 +1247,7 @@ Otro ejemplo podría ser la jerarquía de objetos existentes en cualquier juego.
 
 En ella, se muestra jerarquías de clases que modelan los diferentes tipos de personajes de un juego y algunas de sus armas. Para construir cada tipo de personaje es necesario saber cómo construirlo y con qué otro tipo de objetos tiene relación. Por ejemplo, restricciones del tipo "la gente del pueblo no puede llevar armas" o "los arqueros sólo pueden puede tener un arco", es conocimiento específico de la clase que se está construyendo.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 En primer lugar se define una factoría abstracta que será la que utilice el cliente `Game` para crear los diferentes objetos. La clase `SoldierFactory` es una factoría que sólo define métodos abstractos y que serán implementados por sus clases hijas.
 
@@ -1297,20 +1324,20 @@ class ManFactory implements SoldierFactory {
 
 #### Consideraciones
 
-* Utilizamos este patrón cuando a nuestro sistema no le importa cómo se crearán o compondrán sus productos.
+- Utilizamos este patrón cuando a nuestro sistema no le importa cómo se crearán o compondrán sus productos.
 
-* Usamos este patrón cuando necesitamos tratar con varias _factories_.
+- Usamos este patrón cuando necesitamos tratar con varias _factories_.
 
-* Este patrón separa las clases concretas y facilita el intercambio de productos. También puede mejorar la fiabilidad entre los productos. Pero, al mismo tiempo, debemos reconocer el hecho de que crear un nuevo producto es difícil con este patrón (porque necesitamos extender la interfaz y, como resultado, se requerirán cambios en todas las subclases que ya implementaron la interfaz).
+- Este patrón separa las clases concretas y facilita el intercambio de productos. También puede mejorar la fiabilidad entre los productos. Pero, al mismo tiempo, debemos reconocer el hecho de que crear un nuevo producto es difícil con este patrón (porque necesitamos extender la interfaz y, como resultado, se requerirán cambios en todas las subclases que ya implementaron la interfaz).
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Abstract_Factory>  
-<https://danielggarcia.wordpress.com/2014/02/15/patrones-de-creacion-i-factory-patterns/>  
-<https://refactoring.guru/design-patterns/abstract-factory>  
-<https://sourcemaking.com/design_patterns/abstract_factory>  
+- <https://es.wikipedia.org/wiki/Abstract_Factory>  
+- <https://danielggarcia.wordpress.com/2014/02/15/patrones-de-creacion-i-factory-patterns/>  
+- <https://refactoring.guru/design-patterns/abstract-factory>  
+- <https://sourcemaking.com/design_patterns/abstract_factory>  
 
-### - Patrón **_"Factory Method"_** -
+### _"Factory Method Pattern"_
 
 ![Factory Method](.//media//patterns//creational//factory-method_header.png)
 
@@ -1326,7 +1353,7 @@ En el patrón **_'Factory Method'_** se utiliza una clase constructora abstracta
 
 A diferencia del patrón **_'Abstract Factory'_** no es necesario tener una factoría o una jerarquía de factorías para la creación de objetos. Permite diseños más adaptados a la realidad.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 Las clases principales del ejemplo son el **creador** y el **producto**. El creador necesita crear instancias de productos, pero el tipo concreto de producto no debe ser forzado en las subclases del creador porque las posibles subclases del creador deber poder especificar subclases del producto a utilizar.
 
@@ -1374,16 +1401,16 @@ class ConcreteCreatorB extends Creator {
 
 #### Consideraciones
 
-* Este patrón es útil cuando las clases delegan las responsabilidades de la creación de objetos a sus subclases.
+- Este patrón es útil cuando las clases delegan las responsabilidades de la creación de objetos a sus subclases.
 
-* Este patrón también es útil cuando se implementan jerarquías de clases paralelas (cuando algunas de las responsabilidades cambian de una clase a otra) y cuando es posible crear un sistema con acoplamiento débil.
+- Este patrón también es útil cuando se implementan jerarquías de clases paralelas (cuando algunas de las responsabilidades cambian de una clase a otra) y cuando es posible crear un sistema con acoplamiento débil.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/02/15/patrones-de-creacion-i-factory-patterns/>  
-<https://refactoring.guru/design-patterns/factory-factory>  
-<https://sourcemaking.com/design_patterns/factory_factory>  
+- <https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/02/15/patrones-de-creacion-i-factory-patterns/>  
+- <https://refactoring.guru/design-patterns/factory-factory>  
+- <https://sourcemaking.com/design_patterns/factory_factory>  
 
 ### - Patrón **_"Prototype"_** -
 
@@ -1401,13 +1428,15 @@ La clase de los objetos que servirán de prototipo para la copia deberán inclui
 
 Este patrón se utiliza en casos como:
 
-* Evitar las subclases de un objeto creador como hace el patrón **_'Abstract Factory'_**
-* Evitar el costo inherente a la creación de un objeto nuevo mediante el operador `new` cuando esto es demasiado costoso para la aplicación.
-* La decisión del tipo de objeto necesario se decide en tiempo de ejecución en función de determinados parámetros, configuraciones o condiciones en un momento dado.
+- Evitar las subclases de un objeto creador como hace el patrón **_'Abstract Factory'_**
+
+- Evitar el costo inherente a la creación de un objeto nuevo mediante el operador `new` cuando esto es demasiado costoso para la aplicación.
+
+- La decisión del tipo de objeto necesario se decide en tiempo de ejecución en función de determinados parámetros, configuraciones o condiciones en un momento dado.
 
 Este patrón, dicho de otro modo, propone la creación de distintas variantes de objetos que la aplicación necesite en el momento y contexto adecuados. Toda la lógica necesaria para la decisión sobre el tipo de objetos que usará la aplicación es su ejecución se hace independiente, de manera que el código que utiliza estos objetos solicitará una copia del objeto que necesite. En este contexto, una copia significa otra instancia del objeto. El único requisito que debe cumplir este objeto es suministrar la funcionalidad de clonarse.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 Para implementar este patrón se declara una clase base abstracta que tiene un método `clone()`. Cualquier clase que necesite un constructor deriva de la clase abstracta e implementa el método `clone()`.
 
@@ -1454,25 +1483,25 @@ class FactoriaPrototipo {
 
 #### Consideraciones
 
-* Este patrón es útil para implementar _plugins_ o cuando se cargan en tiempo de ejecución liberías dinámicas.
+- Este patrón es útil para implementar _plugins_ o cuando se cargan en tiempo de ejecución liberías dinámicas.
 
-* Cuando el sistema no se preocupa por el mecanismo de creación de los productos, este patrón es muy útil.
+- Cuando el sistema no se preocupa por el mecanismo de creación de los productos, este patrón es muy útil.
 
-* Podemos usar este patrón cuando necesitamos instanciar clases en tiempo de ejecución.
+- Podemos usar este patrón cuando necesitamos instanciar clases en tiempo de ejecución.
 
-* Una de las ventajas de este patrón es que ayuda a crear nuevas instancias con un coste bajo.
+- Una de las ventajas de este patrón es que ayuda a crear nuevas instancias con un coste bajo.
 
-* Por el contrario, una de las desventajas es que cada subclase tiene que implementar el mecanismo de clonación. Implementar el mecanismo de clonación puede ser un desafío si los objetos en consideración no admiten la copia o si hay algún tipo de referencia circular.
+- Por el contrario, una de las desventajas es que cada subclase tiene que implementar el mecanismo de clonación. Implementar el mecanismo de clonación puede ser un desafío si los objetos en consideración no admiten la copia o si hay algún tipo de referencia circular.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/02/24/patrones-de-creacion-iii-patron-prototype/>  
-<https://refactoring.guru/design-patterns/prototype>  
-<https://sourcemaking.com/design_patterns/prototype>  
-<https://www.baeldung.com/java-pattern-prototype>  
+- <https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/02/24/patrones-de-creacion-iii-patron-prototype/>  
+- <https://refactoring.guru/design-patterns/prototype>  
+- <https://sourcemaking.com/design_patterns/prototype>  
+- <https://www.baeldung.com/java-pattern-prototype>  
 
-### - Patrón **_"Singleton"_** -
+### _"Singleton Pattern"_
 
 ![Singleton](.//media//patterns//creational//singleton_header.png)
 
@@ -1490,19 +1519,19 @@ La instrumentación del patrón puede ser delicada en programas con múltiples h
 
 El patrón **_'Singleton'_** puede ser utilizado para modelar:
 
-* Gestores de acceso a base de datos, sistemas de ficheros, _render_ de gráficos, etc..
+- Gestores de acceso a base de datos, sistemas de ficheros, _render_ de gráficos, etc..
 
-* Estructuras que representan la configuración del programa para que sea accesible por todos los elementos en  cualquier instante.
+- Estructuras que representan la configuración del programa para que sea accesible por todos los elementos en  cualquier instante.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 El patrón **_'Singleton'_** provee una única instancia global gracias a que:
 
-* La propia clase es responsable de crear la única instancia.
+- La propia clase es responsable de crear la única instancia.
 
-* Permite el acceso global a dicha instancia mediante un método de clase.
+- Permite el acceso global a dicha instancia mediante un método de clase.
 
-* Declara el contructor de clase como privado para que no sea instanciable directamente.
+- Declara el contructor de clase como privado para que no sea instanciable directamente.
 
 En este ejemplo, primero hemos hecho que el constructor sea privado, de modo que no podemos crear instancias de manera normal. Además, al proporcionar un constructor privado, evitamos que el compilador genere un constructor por defecto. Cuando intentamos crear una instancia de la clase, estamos comprobando si ya tenemos una copia disponible. Si no tenemos una copia de ese tipo, la crearemos; de lo contrario, simplemente reutilizaremos la copia existente.
 
@@ -1566,18 +1595,20 @@ El patrón **_'Singleton'_** es un caso particular de un patrón de diseño más
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Singleton>  
-<https://danielggarcia.wordpress.com/2014/02/26/patrones-de-creacion-iv-patron-singleton/>  
-<https://refactoring.guru/design-patterns/singleton>  
-<https://sourcemaking.com/design_patterns/singleton>  
+- <https://es.wikipedia.org/wiki/Singleton>  
+- <https://danielggarcia.wordpress.com/2014/02/26/patrones-de-creacion-iv-patron-singleton/>  
+- <https://refactoring.guru/design-patterns/singleton>  
+- <https://sourcemaking.com/design_patterns/singleton>  
 
 ## _Structural Patterns_
 
 Los patrones estructurales son los patrones de diseño de software que solucionan problemas de composición (agregación) de clases y objetos.
 
-Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _Facade_, _Flyweight_ y _Proxy_.
+Los patrones estructurales son **_Adapter_**, **_Bridge_**, **_Composite_**, **_Decorator_**, **_Facade_**, **_Flyweight_** y **_Proxy_**.
 
-### - Patrón **_"Bridge"_** -
+- <https://www.baeldung.com/java-core-structural-patterns>
+
+### _"Bridge Pattern"_
 
 ![Bridge](.//media//patterns/structural//bridge_header.png)
 
@@ -1599,13 +1630,13 @@ El patrón **_'Bridge'_** intenta resolver este problema cambiando de herencia a
 
 En la definición de **GoF** se introducen los conceptos de _"abstración"_ e _"implementación"_. La abstracción y la implementación se pueden representar a través de una interfaz o una clase abstracta, pero la abstracción contiene una referencia a su implementador. Normalmente, un hijo de una abstracción se llama una _'refined abstraction'_ y un hijo de una implementación se llama _'concrete implementation'_.
 
-* _**Abstraction**_ define una interfaz abstracta. Mantiene una referencia a un objeto de tipo _'Implementor'_.
+- _**Abstraction**_ define una interfaz abstracta. Mantiene una referencia a un objeto de tipo _'Implementor'_.
 
-* _**RefinedAbstraction**_ extiende la interfaz definida por _'Abstraction'_.
+- _**RefinedAbstraction**_ extiende la interfaz definida por _'Abstraction'_.
 
-* _**Implementor**_ define la interfaz para la implementación de clases. Esta interfaz no se tiene que corresponder exactamente con la interfaz de _'Abstraction'_; de hecho, las dos interfaces pueden ser bastante diferente. Típicamente la interfaz _'Implementor'_ provee sólo operaciones primitivas, y _'Abstraction'_ define operaciones de alto nivel basadas en estas primitivas.
+- _**Implementor**_ define la interfaz para la implementación de clases. Esta interfaz no se tiene que corresponder exactamente con la interfaz de _'Abstraction'_; de hecho, las dos interfaces pueden ser bastante diferente. Típicamente la interfaz _'Implementor'_ provee sólo operaciones primitivas, y _'Abstraction'_ define operaciones de alto nivel basadas en estas primitivas.
 
-* _**ConcreteImplementor**_ implementa la interfaz de Implementor y define su implementación concreta.
+- _**ConcreteImplementor**_ implementa la interfaz de Implementor y define su implementación concreta.
 
 ![Concept](.//media//patterns//structural//bridge_concept_03.png)
 
@@ -1615,7 +1646,7 @@ Esto se debe a que se desacopla la interfaz de la implementación. Una implement
 
 Desacoplando _'Abstraction'_ e _'Implementor'_ también elimina las dependencias sobre la implementación en tiempo de compilación. Cambiar una clase de implementación no requiere recompilar la clase _'Abstraction'_ ni sus clientes. Es más, este desacoplamiento fomenta las capas, que pueden conducir a un sistema mejor estructurado. La parte de alto nivel de un sistema sólo tiene que conocer _'Abstraction'_ e _'Implementor'_.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 1. Identificar las dimensiones independientes en tus clases. Estos conceptos independientes podrían ser: abstracción/plataforma, dominio/infraestructura, front-end/back-end o interfaz/implementación.
 
@@ -1677,23 +1708,23 @@ También cuando se necesite poder cambiar de implementación en tiempo de ejecuc
 
 #### Ventajas e inconvenientes
 
-* **Ventaja** - El código del cliente funciona con abstracciones de alto nivel. No está expuesto a los detalles de la plataforma.
+- **Ventaja** - El código del cliente funciona con abstracciones de alto nivel. No está expuesto a los detalles de la plataforma.
 
-* **Ventaja** - **Open/Closed Principle**: Puedes introducir nuevas abstracciones e implementaciones independientemente unas de otras.
+- **Ventaja** - **Open/Closed Principle**: Puedes introducir nuevas abstracciones e implementaciones independientemente unas de otras.
 
-* **Ventaja** - **Single Responsibilitiy Principle**: Puede centrarse en la lógica de alto nivel en la abstracción y en los detalles de la plataforma en la implementación.
+- **Ventaja** - **Single Responsibilitiy Principle**: Puede centrarse en la lógica de alto nivel en la abstracción y en los detalles de la plataforma en la implementación.
 
-* **Inconveniente** - La desventaja de este patrón es que puede hacer que el código sea más complicado aplicando el patrón a una clase altamente cohesiva.
+- **Inconveniente** - La desventaja de este patrón es que puede hacer que el código sea más complicado aplicando el patrón a una clase altamente cohesiva.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Bridge_(patr%C3%B3n_de_dise%C3%B1o)>  
-<https://danielggarcia.wordpress.com/2014/03/17/patrones-estructurales-iv-patron-bridge/>  
-<https://en.wikipedia.org/wiki/Bridge_pattern>  
-<https://sourcemaking.com/design_patterns/bridge>  
-<https://refactoring.guru/design-patterns/bridge>  
+- <https://es.wikipedia.org/wiki/Bridge_(patr%C3%B3n_de_dise%C3%B1o)>  
+- <https://danielggarcia.wordpress.com/2014/03/17/patrones-estructurales-iv-patron-bridge/>  
+- <https://en.wikipedia.org/wiki/Bridge_pattern>  
+- <https://sourcemaking.com/design_patterns/bridge>  
+- <https://refactoring.guru/design-patterns/bridge>  
 
-### - Patrón **_"Flyweight"_** -
+### _"Flyweight Pattern"_
 
 ![Flyweight](.//media//patterns//structural//flyweight_header.png)
 
@@ -1711,17 +1742,17 @@ El patrón **_'Flyweight'_** está íntimamente ligado al patrón **_'Factory'_*
 
 Por lo tanto, dentro de un patrón **_'Flyweight'_**, distinguiremos entre estos dos tipos de datos:
 
-* **Intrínsecos**: son los datos compartidos por todos los objetos de un subtipo determinado. Por norma general, son datos que no cambiarán a lo largo del tiempo, y si cambian, alterarán el estado de todos los objetos que hagan uso de ellos.
+- **Intrínsecos**: son los datos compartidos por todos los objetos de un subtipo determinado. Por norma general, son datos que no cambiarán a lo largo del tiempo, y si cambian, alterarán el estado de todos los objetos que hagan uso de ellos.
 
-* **Extrínsecos**: se calculan “al vuelo” fuera del objeto _"Flyweight"_. Este cálculo suele realizarse a partir de los datos intrínsecos y de los parámetros recibidos por los métodos del objeto _"Flyweight"_. La idea detrás de los datos extrínsecos radica en que, o bien sean calculados a partir de los datos intrínsecos o bien ocupen una cantidad de memoria mínima en comparación a éstos.
+- **Extrínsecos**: se calculan “al vuelo” fuera del objeto _"Flyweight"_. Este cálculo suele realizarse a partir de los datos intrínsecos y de los parámetros recibidos por los métodos del objeto _"Flyweight"_. La idea detrás de los datos extrínsecos radica en que, o bien sean calculados a partir de los datos intrínsecos o bien ocupen una cantidad de memoria mínima en comparación a éstos.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 1. Dividir los campos de una clase que se convertirá en _'flyweight'_ en dos partes:
 
-    * **Estado intrínseco**: los campos que contienen datos invariables duplicados en muchos objetos.
+    1. **Estado intrínseco**: los campos que contienen datos invariables duplicados en muchos objetos.
 
-    * **Estado extrínseco**: los campos que contienen datos contextuales únicos para cada objeto.
+    1. **Estado extrínseco**: los campos que contienen datos contextuales únicos para cada objeto.
 
 1. Dejar los campos que representan el estado intrínseco en la clase, pero asegurándose de que sean inmutables. Deben tomar sus valores iniciales solo dentro del constructor.
 
@@ -1771,24 +1802,24 @@ El beneficio de aplicar el patrón depende en gran medida de cómo y dónde se u
 
 #### Ventajas e inconvenientes
 
-* **Ventaja** - Puede guardar una gran cantidad de RAM, asumiendo que su programa tiene toneladas de objetos similares.
+- **Ventaja** - Puede guardar una gran cantidad de RAM, asumiendo que su programa tiene toneladas de objetos similares.
 
-* **Inconveniente** - Es posible que esté intercambiando RAM a través de ciclos de CPU cuando algunos de los datos de contexto se deben recalcular cada vez que alguien llama a un método _'flyweight'_.
+- **Inconveniente** - Es posible que esté intercambiando RAM a través de ciclos de CPU cuando algunos de los datos de contexto se deben recalcular cada vez que alguien llama a un método _'flyweight'_.
 
-* **Inconveniente** - El código se vuelve mucho más complicado.
+- **Inconveniente** - El código se vuelve mucho más complicado.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Flyweight_(patr%C3%B3n_de_dise%C3%B1o)>  
-<https://en.wikipedia.org/wiki/Flyweight_pattern>  
-<https://danielggarcia.wordpress.com/2014/03/24/patrones-estructurales-v-patron-flyweight/>  
-<https://refactoring.guru/design-patterns/flyweight>  
-<https://sourcemaking.com/design_patterns/flyweight>  
-<https://www.baeldung.com/java-flyweight>  
-<https://www.tutorialspoint.com/design_pattern/flyweight_pattern.htm>  
-<https://examples.javacodegeeks.com/core-java/java-flyweight-design-pattern-example/>  
+- <https://es.wikipedia.org/wiki/Flyweight_(patr%C3%B3n_de_dise%C3%B1o)>  
+- <https://en.wikipedia.org/wiki/Flyweight_pattern>  
+- <https://danielggarcia.wordpress.com/2014/03/24/patrones-estructurales-v-patron-flyweight/>  
+- <https://refactoring.guru/design-patterns/flyweight>  
+- <https://sourcemaking.com/design_patterns/flyweight>  
+- <https://www.baeldung.com/java-flyweight>  
+- <https://www.tutorialspoint.com/design_pattern/flyweight_pattern.htm>  
+- <https://examples.javacodegeeks.com/core-java/java-flyweight-design-pattern-example/>  
 
-### - Patrón **_"Adapter"_** -
+### _"Adapter Pattern"_
 
 ![Adapter](.//media//patterns//structural//adapter_header.png)
 
@@ -1804,7 +1835,7 @@ Una solución rápida podría ser adaptar dichas interfaces a las necesidades de
 
 Usando el patrón **_'Adapter'_** es posible crear una nueva interfaz de acceso a un determinado objeto, por lo que proporciona un mecanismo de **adaptación** entre las demandas del objeto cliente y el objeto servidor que proporciona la funcionalidad.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 El cliente no utiliza el sistema adaptado, sino que hace uso del _adaptador_. Este es el que transforma la invocación a `method()` en `otherMethod()`.
 
@@ -1812,8 +1843,9 @@ El cliente no utiliza el sistema adaptado, sino que hace uso del _adaptador_. Es
 
 Es posible que el adaptador también incluya nueva funcionalidad relacionada con la adaptación como por ejemplo:
 
-* Comprobación de la corrección de los parámetros.
-* Transformación de los parámetros para ser compatibles con el sistema adaptado.
+- Comprobación de la corrección de los parámetros.
+
+- Transformación de los parámetros para ser compatibles con el sistema adaptado.
 
 ```java
 interface Target {
@@ -1844,20 +1876,20 @@ public class Client {
 
 #### Consideraciones
 
-* Tener sistemas muy reutilizables puede hacer que las interfaces no puedan ser compatibles con una interfaz en común. En ese caso el patrón **_'Adapter'_** es una buena solución.
+- Tener sistemas muy reutilizables puede hacer que las interfaces no puedan ser compatibles con una interfaz en común. En ese caso el patrón **_'Adapter'_** es una buena solución.
 
-* Un mismo adaptador puede usarse en varios sistemas.
+- Un mismo adaptador puede usarse en varios sistemas.
 
-* Este patrón se parece al patrón **_'Decorator'_**. Sin embargo, difieren en que la finalidad de éste es proporcionar una interfaz completa del objeto adaptador, mientras que el decorador pueden centrarse en una sola parte.
+- Este patrón se parece al patrón **_'Decorator'_**. Sin embargo, difieren en que la finalidad de éste es proporcionar una interfaz completa del objeto adaptador, mientras que el decorador pueden centrarse en una sola parte.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/02/28/patrones-estructurales-i-patron-adapter-wrapper/>  
-<https://refactoring.guru/design-patterns/adapter>  
-<https://sourcemaking.com/design_patterns/adapter>  
+- <https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/02/28/patrones-estructurales-i-patron-adapter-wrapper/>  
+- <https://refactoring.guru/design-patterns/adapter>  
+- <https://sourcemaking.com/design_patterns/adapter>  
 
-### - Patrón **_"Decorator"_** -
+### _"Decorator Pattern"_
 
 ![Decorator](.//media//patterns/structural//decorator_header.png)
 
@@ -1869,7 +1901,7 @@ El patrón **_'Decorator'_** sirve para añadir y/o modificar la responsabilidad
 
 Este patrón permite tener una jerarquía de clases compuestas, formando una estructura más dinámica y flexible que la herencia estática. Al utilizar este patrón, se pueden añadir y eliminar responsabilidades en tiempo de ejecución. Además, evita la utilización de la herencia con muchas clases y también, la herencia múltiple (si fuera posible en el lenguaje utilizado).
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 Supongamos que el personaje de un videojuego porta un arma que utiliza para eliminar a sus enemigos. Dicha arma, por ser de un tipo determinado, tiene una serie de propiedades como podrían ser "radio de acción", "número de balas", etc.. Sin embargo, es posible que el personaje incorpore elementos al arma que pueden cambiar estas propiedades como un silenciador o un cargador extra.
 
@@ -1956,22 +1988,22 @@ class Magazine extends FirearmDecorator {
 
 #### Consideraciones
 
-* El patrón **_'Decorator'_** está más centrado en la extensión de la funcionalidad que en la composición de objetos para la generación de una jerarquía como ocurre con el patrón **_'Composite'_**.
+- El patrón **_'Decorator'_** está más centrado en la extensión de la funcionalidad que en la composición de objetos para la generación de una jerarquía como ocurre con el patrón **_'Composite'_**.
 
-* Normalmente, sólo existe una objeto decorado y no un vector de objetos (aunque también es posible).
+- Normalmente, sólo existe una objeto decorado y no un vector de objetos (aunque también es posible).
 
-* Este patrón puede generar gran cantidad de objetos pequeños y parecidos que dificulta su identificación.
+- Este patrón puede generar gran cantidad de objetos pequeños y parecidos que dificulta su identificación.
 
-* Este patrón se diferencia de la simple herencia en que podemos añadir o quitar responsabilidades simplemente adjuntando o quitando decoradores. Pero únicamente con la herencia, necesitamos crear una nueva clase para nuevas responsabilidades. Por lo tanto, habrá muchas clases dentro del sistema, lo que a su vez puede hacer que el sistema sea complejo.
+- Este patrón se diferencia de la simple herencia en que podemos añadir o quitar responsabilidades simplemente adjuntando o quitando decoradores. Pero únicamente con la herencia, necesitamos crear una nueva clase para nuevas responsabilidades. Por lo tanto, habrá muchas clases dentro del sistema, lo que a su vez puede hacer que el sistema sea complejo.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/03/10/patrones-estructurales-iii-patron-decorator/>  
-<https://refactoring.guru/design-patterns/adapter>  
-<https://sourcemaking.com/design_patterns/adapter>  
+- <https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/03/10/patrones-estructurales-iii-patron-decorator/>  
+- <https://refactoring.guru/design-patterns/adapter>  
+- <https://sourcemaking.com/design_patterns/adapter>  
 
-### - Patrón **_"Composite"_** -
+### _"Composite Pattern"_
 
 ![Composite](.//media//patterns//structural//composite_header.png)
 
@@ -1985,7 +2017,7 @@ Esto simplifica el tratamiento de los objetos creados ya que al poseer todos ell
 
 Una buena manera de identificar la situación en que se puede aplicar este patrón es cuando tengo "un X y tiene varios objetos X".
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 Para ilustrar el problema supóngase un juego de estrategia en el que los jugadores pueden recoger objetos o items, los cuales tienen una serie de propiedades como "precio", "descripción", etc. Cada item, a su vez, puede contener otros items. Por ejemplo, un bolso de cuero puede contener una pequeña caja de madera que, a su vez, contiene un pequeño reloj dorado, etc..
 
@@ -2033,16 +2065,16 @@ class Bag extends Item {
 
 #### Consideraciones
 
-* Los clientes pueden añadir nuevos tipos de componentes fácilmente.
+- Los clientes pueden añadir nuevos tipos de componentes fácilmente.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/03/31/patrones-estructurales-vi-patron-composite/>  
-<https://refactoring.guru/design-patterns/composite>  
-<https://sourcemaking.com/design_patterns/composite>  
+- <https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/03/31/patrones-estructurales-vi-patron-composite/>  
+- <https://refactoring.guru/design-patterns/composite>  
+- <https://sourcemaking.com/design_patterns/composite>  
 
-### - Patrón **_"Facade"_** -
+### _"Facade Pattern"_
 
 ![Facade](.//media//patterns//structural//facade_header.png)
 
@@ -2060,13 +2092,13 @@ También es útil cuando haya que controlar el acceso y la forma en que se utili
 
 Este patrón se relaciona con el patrón **_'Singleton'_** ya que normalmente las fachadas suelen ser instancias únicas.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 ![Implementación](.//media//patterns//structural//facade_diagram.png)
 
-* **Fachada** - conoce qué clases del subsistema son responsables de una determinada peticíón y delega esas peticiones de los clientes a los objetos apropiados del subsistema. Los clientes no acceden directamente a las subclases.
+- **Fachada** - conoce qué clases del subsistema son responsables de una determinada peticíón y delega esas peticiones de los clientes a los objetos apropiados del subsistema. Los clientes no acceden directamente a las subclases.
 
-* **Subclases** (ModuleA, ModuleB, ModuleC...) - implementan la funcionalidad del subsistema. Realizan el trabajo solicitado por la fachada. No conocen la existencia de la fachada.
+- **Subclases** (ModuleA, ModuleB, ModuleC...) - implementan la funcionalidad del subsistema. Realizan el trabajo solicitado por la fachada. No conocen la existencia de la fachada.
 
 ```java
 class ModuleA {
@@ -2114,18 +2146,18 @@ class Facade {
 
 #### Consideraciones
 
-* La principal ventaja al utilizar este patrón consiste en que para modificar las clases del subsistema sólo hay que realizar los cambios en la interfaz/fachada. Los clientes pueden permanecer ajenos a ello. Esto permite el desacople de los clientes y eleva el nivel de abstracción.
+- La principal ventaja al utilizar este patrón consiste en que para modificar las clases del subsistema sólo hay que realizar los cambios en la interfaz/fachada. Los clientes pueden permanecer ajenos a ello. Esto permite el desacople de los clientes y eleva el nivel de abstracción.
 
-* Un problema derivado del uso de este patrón es que si no se dividen correctamente las responsabilidades se crean clases fachada con un tamaño desproporcionado al incluir demasiada funcionalidad.
+- Un problema derivado del uso de este patrón es que si no se dividen correctamente las responsabilidades se crean clases fachada con un tamaño desproporcionado al incluir demasiada funcionalidad.
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/03/03/patrones-estructurales-ii-patron-facade/>  
-<https://refactoring.guru/design-patterns/facade>  
-<https://sourcemaking.com/design_patterns/facade>  
+- <https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/03/03/patrones-estructurales-ii-patron-facade/>  
+- <https://refactoring.guru/design-patterns/facade>  
+- <https://sourcemaking.com/design_patterns/facade>  
 
-### - Patrón **_"Proxy"_** -
+### **_"Proxy Pattern"_
 
 ![Proxy](.//media//patterns//structural//proxy_header.png)
 
@@ -2137,15 +2169,15 @@ El patrón **_'Proxy'_** tiene como propósito proporcionar un sustituto o inter
 
 Muchos de los objetos que pueden integrar una aplicación pueden representar diferentes problemas a la hora de ser utilizados por la aplicación:
 
-* **Coste computacional** - Es posible que un objeto sea costoso de manipular y cargar.
+- **Coste computacional** - Es posible que un objeto sea costoso de manipular y cargar.
 
-* **Acceso remoto** - el acceso por red es un componente cada vez más común.
+- **Acceso remoto** - el acceso por red es un componente cada vez más común.
 
-* **Acceso seguro** - es posible que para usar determinados objetos se necesiten determinados privilegios.
+- **Acceso seguro** - es posible que para usar determinados objetos se necesiten determinados privilegios.
 
-* **Dobles de prueba** - a la hora de diseñar y probar el código se necesitan objetos _"dobles"_ que simulen a los objetos reales.
+- **Dobles de prueba** - a la hora de diseñar y probar el código se necesitan objetos _"dobles"_ que simulen a los objetos reales.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 El coste de manipular y cargar una imagen puede ser importante según el sistema, tipo de manipulación, etc... Con el patrón **_'Proxy'_** se crea un objeto intermedio `ImageProxy` que represente al objeto real `Image` y que se utilice de la misma forma desde el punto de vista del cliente.
 
@@ -2187,18 +2219,18 @@ class ImageProxy extends Graphic {
 
 #### Consideraciones
 
-* En los sistemas de autenticación, dependiendo de las credenciales presentadas por el cliente, se devuelve un proxy u otro que permiten realizar distintos tipos de operaciones, acceder a determinados recursos, etc...
+- En los sistemas de autenticación, dependiendo de las credenciales presentadas por el cliente, se devuelve un proxy u otro que permiten realizar distintos tipos de operaciones, acceder a determinados recursos, etc...
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/04/07/patrones-estructurales-vii-patron-proxy/>  
-<https://refactoring.guru/design-patterns/proxy>  
-<https://sourcemaking.com/design_patterns/proxy>  
+- <https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://danielggarcia.wordpress.com/2014/04/07/patrones-estructurales-vii-patron-proxy/>  
+- <https://refactoring.guru/design-patterns/proxy>  
+- <https://sourcemaking.com/design_patterns/proxy>  
 
 ## Otros patrones estructurales
 
-### - Patrón **_"Reactor"_** -
+### _"Reactor Pattern"_
 
 El patrón **_'Reactor'_** es un patrón de programación concurrente para manejar los pedidos de servicio entregados de forma concurrente a un manejador de servicio desde una o más entradas. El manejador de servicio demultiplexa los pedidos entrantes y los entrega de forma sincrónica a los manejadores de pedidos asociados.
 
@@ -2212,17 +2244,17 @@ En los videojuegos ocurre algo muy similar: diferentes entidades pueden lanzar e
 
 El patrón **_'Reactor'_** se compone de **eventos**, **manejadores de eventos**, **recursos** y el **reactor** propiamente dicho:
 
-* **Eventos** - los eventos externos que pueden ocurrir sobre los recursos **(Handles)**. Normalmente su ocurrencia es asíncrona y siempre está relacionada a un recurso determinado.
+- **Eventos** - los eventos externos que pueden ocurrir sobre los recursos **(Handles)**. Normalmente su ocurrencia es asíncrona y siempre está relacionada a un recurso determinado.
 
-* **Recursos (Handlers)** - se refiere a los objetos sobre los que ocurren los eventos.
+- **Recursos (Handlers)** - se refiere a los objetos sobre los que ocurren los eventos.
 
-* **Manejadores de Eventos** - Asociados a los recursos y a los eventos que se producen en ellos, se encuentran los manejadores de eventos **(EventHandler)** que reciben una invocación a través del método **handle()** con la información del evento que se ha producido.
+- **Manejadores de Eventos** - Asociados a los recursos y a los eventos que se producen en ellos, se encuentran los manejadores de eventos **(EventHandler)** que reciben una invocación a través del método **handle()** con la información del evento que se ha producido.
 
-* **Reactor** - se trata de la clase que encapsula todo el comportamiento relativo a la desmultiplexación de los eventos en manejadores de eventos **(dispatching)**. Cuando ocurre cierto evento, se busca los manejadores asociados y se les invoca el método **handle()**.
+- **Reactor** - se trata de la clase que encapsula todo el comportamiento relativo a la desmultiplexación de los eventos en manejadores de eventos **(dispatching)**. Cuando ocurre cierto evento, se busca los manejadores asociados y se les invoca el método **handle()**.
 
 ![Concepto](.//media//patterns//others//reactor_diagram.png)
 
-#### Ejemplo de implementación
+#### Caso práctico
 
 ```java
 interface EventHandler {
@@ -2291,7 +2323,7 @@ Desde un punto de vista general, el patrón **_'Reactor'_** tiene un comportamie
 
 <https://es.wikipedia.org/wiki/Reactor_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
-### Patrón **_"MVC"_**
+### _"MVC Pattern"_
 
 #### Concepto
 
@@ -2301,13 +2333,13 @@ Para ello el patrón **_'MVC'_** propone la construcción de tres componentes di
 
 Este patrón de arquitectura de software se basa en las ideas de reutilización de código y la separación de conceptos, características que buscan facilitar la tarea de desarrollo de aplicaciones y su posterior mantenimiento.
 
-#### Ejemplo de implementación
+#### Caso práctico
 
-* **Vista** - se trata de la interfaz de usuario que interactúa con el usuario y recibe las órdenes (pulsar un botón, introducir texto, etc...). También recibe órdenes desde el controlador para mostrar información o realizar un cambio en la interfaz.
+- **Vista** - se trata de la interfaz de usuario que interactúa con el usuario y recibe las órdenes (pulsar un botón, introducir texto, etc...). También recibe órdenes desde el controlador para mostrar información o realizar un cambio en la interfaz.
 
-* **Controlador** - el controlador recibe órdenes utilizando, habitualmente, manejadores o _'callbacks'_ y traduce esa acción al dominio del modelo de la aplicación. La acción puede ser crear una nueva instancia de un objeto determinado, actualizar estados, pedir operaciones al modelo, etc...
+- **Controlador** - el controlador recibe órdenes utilizando, habitualmente, manejadores o _'callbacks'_ y traduce esa acción al dominio del modelo de la aplicación. La acción puede ser crear una nueva instancia de un objeto determinado, actualizar estados, pedir operaciones al modelo, etc...
 
-* **Modelo** - el modelo de la aplicación recibe las acciones a realizar por el usuario, pero ya independientes del tipo de interfaz utilizado porque se utilizan, únicamente, estructuras propias del dominio del modelo y llamadas desde el controlador.
+- **Modelo** - el modelo de la aplicación recibe las acciones a realizar por el usuario, pero ya independientes del tipo de interfaz utilizado porque se utilizan, únicamente, estructuras propias del dominio del modelo y llamadas desde el controlador.
 
 ![MVC](.//media//patterns//others//mvc_concept.png)
 
