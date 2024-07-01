@@ -17,6 +17,9 @@ Asimismo, no pretenden:
 
 Por tanto no es obligatorio utilizar los patrones. Sólo es aconsejable en el caso de detectar el mismo problema o uno similar para el cual existe un patrón que proporciona una solución probada, siempre teniendo en cuenta que en un caso particular puede no ser aplicable. Abusar o forzar el uso de los patrones puede ser contraproducente.
 
+- <https://www.geeksforgeeks.org/software-design-patterns/>
+- <https://www.geeksforgeeks.org/java-design-patterns>
+
 ## _"Behavioral Patterns"_
 
 Los patrones de comportamiento se definen como patrones de diseño de software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan.
@@ -129,7 +132,7 @@ Una función de devolución de llamada se puede diseñar con este patrón.
 - <https://www.tutorialspoint.com/design_pattern/command_pattern.htm>
 - <https://www.digitalocean.com/community/tutorials/command-design-pattern>
 - <https://java-design-patterns.com/es/patterns/command>
-- <https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>
+- <https://www.infoworld.com/article/3667498/how-to-use-the-command-pattern-in-java.html>
 - <https://danielggarcia.wordpress.com/2014/04/28/patrones-de-comportamiento-ii-patron-command>
 
 ---
@@ -222,7 +225,7 @@ public class Client {
 - <https://www.tutorialspoint.com/design_pattern/iterator_pattern.htm>
 - <https://www.digitalocean.com/community/tutorials/iterator-design-pattern-java>
 - <https://java-design-patterns.com/es/patterns/iterator>
-- <https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+- <https://www.infoworld.com/article/2461744/java-language-iterating-over-collections-in-java-8.html>  
 - <https://danielggarcia.wordpress.com/2014/04/14/patrones-de-comportamiento-i-patron-iterator>  
 
 ---
@@ -308,7 +311,7 @@ class Observer {
 - <https://www.tutorialspoint.com/design_pattern/observer_pattern.htm>
 - <https://www.digitalocean.com/community/tutorials/observer-design-pattern-in-java>
 - <https://java-design-patterns.com/es/patterns/observer>
-- <https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>
+- <https://www.infoworld.com/article/3682139/intro-to-the-observable-design-pattern.html>
 - <https://danielggarcia.wordpress.com/2014/06/02/patrones-de-comportamiento-vi-patron-observer/>
 
 ### _"State Pattern"_
@@ -471,7 +474,6 @@ Un sistema con muchos estados o si el número se incrementa significativamente s
 - <https://www.tutorialspoint.com/design_pattern/state_pattern.htm>
 - <https://www.digitalocean.com/community/tutorials/state-design-pattern-java>
 - <https://java-design-patterns.com/es/patterns/state>
-- <https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29>
 - <https://danielggarcia.wordpress.com/2014/05/20/patrones-de-comportamiento-v-patron-state/>
 
 ### _"Strategy Pattern"_
@@ -577,42 +579,47 @@ A grosso modo, este patrón realiza una tarea bastante similar al **_'Template M
 - <https://www.tutorialspoint.com/design_pattern/strategy_pattern.htm>
 - <https://www.digitalocean.com/community/tutorials/strategy-design-pattern-in-java-example-tutorial>
 - <https://java-design-patterns.com/es/patterns/strategy>
-- <https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 - <https://danielggarcia.wordpress.com/2014/05/12/patrones-de-comportamiento-iv-patron-strategy>  
 
 ### _"Template Method Pattern"_
 
-![Template-Method](.//media//patterns//behavioral//template_method_header.png)
+<!-- markdownlint-disable MD033 -->
+<div style="text-align: center;">
+  <img src=".//media//patterns//behavioral//template/template_method_header.png" alt="template_method_pattern_intro" width="475" height="auto">
+  <p style="font-size: 0.75em;">&#169; Refactoring Guru</p>
+</div>
+<!-- markdownlint-disable MD033 -->
 
-**GoF**: Define el esqueleto de un algoritmo en una operación, aplazando algunos pasos a las subclases. El método de la plantilla permite subclases redefinir ciertos pasos de un algoritmo sin cambiar la estructura del algoritmo.
+> _Define el esqueleto de un algoritmo en una operación, aplazando algunos pasos a las subclases. El método de la plantilla permite subclases redefinir ciertos pasos de un algoritmo sin cambiar la estructura del algoritmo._
+>
+> _-- GoF_
 
 #### Concepto
 
-El patrón **_'Template Method'_** define en una operación el esqueleto de un algoritmo, delegando en las subclases algunos de sus pasos. Esto permite que las subclases redefinan ciertos pasos de un algoritmo sin cambiar su estructura.
+El **_'Template Method Pattern'_** define en una operación el esqueleto de un algoritmo, delegando en las subclases algunos de sus pasos. Esto permite que las subclases redefinan ciertos pasos de un algoritmo sin cambiar su estructura.
 
 En un buen diseño los algoritmos complejos se dividen en funciones más pequeñas, de forma que si se llama a dichas funciones en un determinado orden se consigue implementar el algoritmo completo. Conforme se diseña cada paso concreto, se suele ir detectando funcionalidad común con otros algoritmos.
 
 Por ejemplo, supongamos que tenemos dos tipos de jugadores de juegos de mesa: ajedrez y damas. En esencia, ambos juegan igual; lo que cambia son las reglas del juego que, obviamente, condiciona su estrategia y su forma de jugar concreta. Sin embargo, en ambos juegos, los jugadores mueven en su turno, esperan al rival y esto se repite hasta que acaba la partida.
 
-El patrón **_'Template Method'_** consiste extraer este comportamiento común en una clase padre y definir en las clases hijas la funcionalidad concreta.
+Este patrón consiste extraer este comportamiento común en una **clase padre** y definir en **las clases hijas** la funcionalidad concreta.
 
-Si el patrón **_'Command'_** nos permite encapsular una invocación a un método, el patrón **_'Template Method'_** establece una forma de encapsular algoritmos. Este patrón se basa en un principio muy sencillo: si un algoritmo puede aplicarse a varios supuestos en los que únicamente cambie un pequeño número de operaciones, la idea será utilizar una clase para modelarlo a través de sus operaciones. Esta clase base se encargará de definir los pasos comunes del algoritmo, mientras que las clases que hereden de ella implementarán los detalles propios de cada caso concreto, es decir, el código específico para cada caso.
+Si el **_'Command Pattern'_** nos permite encapsular una invocación a un método, el **_'Template Method Pattern'_** establece una forma de encapsular algoritmos. Este patrón se basa en un principio muy sencillo: si un algoritmo puede aplicarse a varios supuestos en los que únicamente cambie un pequeño número de operaciones, la idea será utilizar una clase para modelarlo a través de sus operaciones. Esta clase base se encargará de definir los pasos comunes del algoritmo, mientras que las clases que hereden de ella implementarán los detalles propios de cada caso concreto, es decir, el código específico para cada caso.
 
 #### Caso práctico
 
-- Se declara una clase abstracta, que será la plantilla o modelo. Esta clase definirá una serie de funciones y métodos. Aquellas que sean comunes estarán implementadas. Aquellas que dependan de cada caso concreto, se declararán como abstractas, obligando a las clases hijas a implementarlas.
+Para aplicar este patrón se declara una clase abstracta, que será la plantilla o modelo. Esta clase definirá una serie de funciones y métodos. Aquellas que sean comunes estarán implementadas. Aquellas que dependan de cada caso concreto, se declararán como abstractas, obligando a las clases hijas a implementarlas.
 
-- Cada clase derivada implementará los métodos específicos, acudiendo a la clase base para ejecutar el código común.
+Además, cada clase derivada implementará los métodos específicos, acudiendo a la clase base para ejecutar el código común.
 
-- La clase base también se encargará de la lógica del algoritmo, ejecutando los pasos en un orden preestablecido (las clases hijas no deberían poder modificar el algoritmo, únicamente definir la funcionalidad específica que tienen que implementar).
+La clase base también se encargará de la lógica del algoritmo, ejecutando los pasos en un orden preestablecido (las clases hijas no deberían poder modificar el algoritmo, únicamente definir la funcionalidad específica que tienen que implementar).
 
 Dado que la clase padre es la que se encarga de llamar los métodos de las clases derivadas (los pasos del algoritmo estarán implementado en la clase base), se trata de una aplicación manifiesta del **'Principio de Inversión de Dependencias'**: la clase base no tiene por qué saber nada acerca de sus hijas, pero aún así, se encargará de invocar su funcionalidad cuando sea necesario. El **'Principio de Hollywood'** (“no nos llames, nosotros te llamaremos”) vuelve a entrar en escena.
-
-![Implementación](.//media//patterns//behavioral//template_method_diagram.png)
 
 La clase `GamePlayer` es la que implementa el método `play()` que es el que invoca a los otros métodos que son implementados por las clases hijas. Este método es el **método plantilla**:
 
 ```java
+// "GamePlayer"
 abstract class GamePlayer {
     void play() {
         if (moveFirst()) {
@@ -636,6 +643,7 @@ abstract class GamePlayer {
     abstract boolean isOver();
 }
 
+// "ChessPlayer.java"
 class ChessPlayer extends GamePlayer {
     private int movements = 0;
 
@@ -663,6 +671,7 @@ class ChessPlayer extends GamePlayer {
     }
 }
 
+// "CheckersPlayer.java"
 class CheckersPlayer extends GamePlayer {
     private int movements = 0;
 
@@ -693,42 +702,50 @@ class CheckersPlayer extends GamePlayer {
 
 #### Consideraciones
 
-- Utilizando el patrón **_'Template Method'_** se suelen obtener estructuras altamente reutilizables. Esta reutilización de código es el objetivo primordial de este patrón. Es por ello que es ampliamente utilizado en bibliotecas de clases.
+Utilizando este patrón se suelen obtener estructuras altamente reutilizables. Esta reutilización de código es el objetivo primordial de este patrón. Es por ello que es ampliamente utilizado en bibliotecas de clases.
 
-- Introduce el concepto de operaciones _'hook'_ que, en caso de no estar implementadas en las clases hijas, tienen una implementación por defecto. Las clases hijas pueden sobreescribirlas para añadir su propia funcionalidad.
+Además, introduce el concepto de operaciones _'hook'_ que, en caso de no estar implementadas en las clases hijas, tienen una implementación por defecto. Las clases hijas pueden sobreescribirlas para añadir su propia funcionalidad.
 
-- Hay que minimizar el número de métodos abstractos (métodos sin cuerpo). De lo contrario, cada una de las subclases debe sobreescribirlos y el proceso global perderá la efectividad de este patrón de diseño.
+Hay que minimizar el número de métodos abstractos (métodos sin cuerpo). De lo contrario, cada una de las subclases debe sobreescribirlos y el proceso global perderá la efectividad de este patrón de diseño.
 
 #### Referencias
 
-- <https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-- <https://danielggarcia.wordpress.com/2014/05/05/patrones-de-comportamiento-iii-template-method/>  
-- <https://refactoring.guru/design-patterns/template-method>  
+- <https://refactoring.guru/es/design-patterns/template-method>  
 - <https://sourcemaking.com/design_patterns/template_method>  
+- <https://www.baeldung.com/java-template-method-pattern>
+- <https://www.tutorialspoint.com/design_pattern/template_pattern.htm>
+- <https://www.digitalocean.com/community/tutorials/template-method-design-pattern-in-java>
+- <https://java-design-patterns.com/es/patterns/template-method/>
+- <https://danielggarcia.wordpress.com/2014/05/05/patrones-de-comportamiento-iii-template-method/>  
 
 ### _"Visitor Pattern"_
 
-![Visitor](.//media//patterns//behavioral//visitor_header.png)
+<!-- markdownlint-disable MD033 -->
+<div style="text-align: center;">
+  <img src=".//media//patterns//behavioral//visitor/visitor_header.png" alt="visitor_pattern_intro" width="475" height="auto">
+  <p style="font-size: 0.75em;">&#169; Refactoring Guru</p>
+</div>
+<!-- markdownlint-disable MD033 -->
 
-**GoF**: Representa una operación a realizar en los elementos de una estructura de objeto. Este patrón le permite definir una nueva operación sin cambiar las clases de los elementos sobre los que opera.
+> _Representa una operación a realizar en los elementos de una estructura de objeto. Este patrón le permite definir una nueva operación sin cambiar las clases de los elementos sobre los que opera._
+>
+> _-- GoF_
 
-El patrón **_'Visitor'_** proporciona un mecanismo para realizar diferentes operaciones sobre una jerarquía de objetos de forma que añadir nuevas operaciones no haga necesario cambiar las clases de los objetos sobre los que se realizan las operaciones.
+El **_'Visitor Pattern'_** proporciona un mecanismo para realizar diferentes operaciones sobre una jerarquía de objetos de forma que añadir nuevas operaciones no haga necesario cambiar las clases de los objetos sobre los que se realizan las operaciones.
 
 #### Concepto
 
-En el diseño de un programa, normalmente se obtienen jerarquías de objetos a través de herencia o utilizando el patrón **_'Composite'_**. Considerando una jerarquía de objetos que sea más o menos estable, es muy probable que necesitemos realizar operaciones sobre dicha jerarquía. Sin embargo, puede ser que cada objeto deba ser tratado de una forma diferente en función de su tipo. La complejidad de estas operaciones aumenta muchísimo.
+En el diseño de un programa, normalmente se obtienen jerarquías de objetos a través de herencia o utilizando el **_'Composite Pattern'_**. Considerando una jerarquía de objetos que sea más o menos estable, es muy probable que necesitemos realizar operaciones sobre dicha jerarquía. Sin embargo, puede ser que cada objeto deba ser tratado de una forma diferente en función de su tipo. Por lo tanto la complejidad general aumentará según el número de objetos y de operaciones aplicables.
 
-En el patrón **_'Visitor'_** se distinguen dos participantes:
+En el **_'Visitor Pattern'_** se distinguen dos participantes:
 
 - **Visitables**: son los elementos de la estructura de objetos que aceptan a un determinado visitante y que le proporcionan toda la información a éste para realizar una determinada operación. Definen una operación `accept(v:Visitor)` que toma un visitante como argumento.
 
 - **Visitantes:** jerarquía de objetos que realizan una operación determinada sobre dichos elementos.
 
-![Concepto](.//media//patterns//behavioral//visitor_diagram.png)
-
 Cada visitante concreto realiza una operación sobre la estructura de objetos. Es posible que al visitante no le interesen todos los objetos y, por lo tanto, la implementación de alguno de sus métodos sea vacía.
 
-Sin embargo, lo importante del patrón **_'Visitor'_** es que se pueden añadir nuevos tipos de visitantes concretos y, por lo tanto, realizar nuevas operaciones sobre la estructura sin la necesidad de modificar nada en la propia estructura. Por tanto se seguiría el **Principio 'Open/Closed'** (abierto a la extensión, cerrado a la modificación).
+Sin embargo, lo importante de este patrón es que se pueden añadir nuevos tipos de visitantes concretos y, por lo tanto, realizar nuevas operaciones sobre la estructura sin la necesidad de modificar nada en la propia estructura. Por tanto se seguiría el **Principio 'Open/Closed'** (abierto a la extensión, cerrado a la modificación).
 
 #### Caso práctico
 
@@ -781,23 +798,33 @@ class ConcreteVisitor2 implements Visitor {
 
 #### Consideraciones
 
-- El patrón **_'Visitor'_** es muy conveniente para recorrer estructuras arbóreas y realizar operaciones en base a los datos almacenados.
+El **_'Visitor Pattern'_** es muy conveniente para recorrer estructuras arbóreas y realizar operaciones en base a los datos almacenados.
 
-- La forma en que se recorra la estructura influirá notablemente en el rendimiento del análisis de la estructura. Se puede hacer uso del patrón **_'Iterator'_** para decidir cómo escoger el siguiente elemento.
+La forma en que se recorra la estructura influirá notablemente en el rendimiento del análisis de la estructura. Se puede hacer uso del **_'Iterator Pattern'_** para decidir cómo escoger el siguiente elemento.
 
-- Uno de los problemas de este patrón es que no es recomendable si la estructura  de objetos cambia frecuentemente o es necesario añadir nuevos tipos de objetos de forma habitual. Cada nuevo objeto que sea susceptible de ser visitado puede provocar grandes cambios en la jerarquía de los visitantes.
+Uno de los problemas de este patrón es que no es recomendable si la estructura  de objetos cambia frecuentemente o es necesario añadir nuevos tipos de objetos de forma habitual. Cada nuevo objeto que sea susceptible de ser visitado puede provocar grandes cambios en la jerarquía de los visitantes.
 
 #### Referencias
 
-- <https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-- <https://refactoring.guru/design-patterns/visitor>  
-- <https://sourcemaking.com/design_patterns/visitor>  
+- <https://refactoring.guru/es/design-patterns/visitor>  
+- <https://sourcemaking.com/design_patterns/visitor>
+- <https://www.baeldung.com/java-visitor-pattern>
+- <https://www.tutorialspoint.com/design_pattern/visitor_pattern.htm>
+- <https://www.digitalocean.com/community/tutorials/visitor-design-pattern-java>
+- <https://java-design-patterns.com/es/patterns/visitor>
 
 ### _"Memento Pattern"_
 
-![Memento](.//media//patterns//behavioral//memento_header.png)
+<!-- markdownlint-disable MD033 -->
+<div style="text-align: center;">
+  <img src=".//media//patterns//behavioral//memento/memento_header.png" alt="memento_pattern_intro" width="475" height="auto">
+  <p style="font-size: 0.75em;">&#169; Refactoring Guru</p>
+</div>
+<!-- markdownlint-disable MD033 -->
 
-**GoF**: Sin violar la encapsulación, captura y externaliza el estado interno de un objeto para que el objeto pueda restaurarse a este estado más adelante.
+> _Sin violar la encapsulación, captura y externaliza el estado interno de un objeto para que el objeto pueda restaurarse a este estado más adelante._
+>
+> _-- GoF_
 
 #### Concepto
 
@@ -807,7 +834,7 @@ Se usa este patrón cuando se quiere poder restaurar el sistema desde estados pa
 
 #### Caso práctico
 
-El patrón **_'Memento'_** define tres roles principales:
+El **_'Memento Pattern'_** define tres roles principales:
 
 - _**Originator**_: El _'originator'_ puede producir instantáneas de su propio estado, así como restaurar su estado a partir de las instantáneas cuando sea necesario.
 
@@ -815,13 +842,12 @@ El patrón **_'Memento'_** define tres roles principales:
 
 - _**Memento**_: Es un objeto de valor que actúa como una instantánea del estado del _'originator'_. Es una práctica común hacer que el _'memento'_ sea inmutable y pasar los datos solo una vez, a través del constructor.
 
-![Implementación](.//media//patterns//behavioral//memento_diagram.jpg)
-
 La clase `Originator` implementa el método `createMemento()` que crea y devuelve un objeto de tipo `Memento` que almacena el estado interno actual del propio objeto de tipo `Originator` y el método `restore(Memento memento)` que restaura el estado a partir del objeto de tipo `Memento` pasado como argumento.
 
 Para guardar el estado original, la clase `'Caretaker'` invoca el método `'createMemento()'` que creará un objeto de tipo `'Memento'` con el estado actual y lo retornará al invocador que lo custodiará (sin alterar su estado ni acceder a él). Cuando sea necesario restaurar el estado anterior, el objeto `'Caretaker'`  invocará el método `'restore(memento)'` especificando el objeto `'Memento'` que guarda el estado que debe ser restaurado. El objeto _'originator'_ recupera el estado del método `'getState()'` del objeto `'Memento'`.  
 
 ```java
+// "Originator.java"
 class Originator {
     private String state;
     // The class could also contain additional data that is not part of the
@@ -856,6 +882,7 @@ class Originator {
     }
 }
 
+// "Caretaker.java"
 class Caretaker {
     public static void main(String[] args) {
         List<Originator.Memento> savedStates = new ArrayList<>();
@@ -876,20 +903,19 @@ class Caretaker {
 
 #### Consideraciones
 
-- En un escenario real en que puede haber varios puntos de restauración o _'snapshots'_ del estado de un objeto en varias instancias de tiempo se puede emplear una estructura como un `ArrayList` o similares.
+En un escenario real en que puede haber varios puntos de restauración o _'snapshots'_ del estado de un objeto en varias instancias de tiempo se puede emplear una estructura como un `ArrayList` o similares. Un número alto de puntos de restauración o _'snapshots'_ requiere espacio extra de almacenamiento.
 
-- Este patrón se utiliza cuando queremos implementar operaciones como _'undo'_ o _'rollback'_.
+Este patrón se utiliza cuando queremos implementar operaciones como _'undo'_ o _'rollback'_.
 
-- Un número alto de puntos de restauración o _'snapshots'_ requiere espacio extra de almacenamiento.
-
-- Este patrón se puede implementar utilizando la serialización, que es bastante común en Java. Si bien no es la única ni la forma más eficiente de hacer instantáneas del estado de un objeto, todavía permite almacenar copias de seguridad del estado mientras protege la estructura del _'originator'_ frente a otros objetos.
+Este patrón se puede implementar utilizando la serialización, que es bastante común en Java. Si bien no es la única ni la forma más eficiente de hacer instantáneas del estado de un objeto, todavía permite almacenar copias de seguridad del estado mientras protege la estructura del _'originator'_ frente a otros objetos.
 
 #### Referencias
 
-- <https://en.wikipedia.org/wiki/Memento_pattern>  
-- <https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)>  
+- <https://refactoring.guru/es/design-patterns/memento>  
 - <https://sourcemaking.com/design_patterns/memento>  
-- <https://refactoring.guru/design-patterns/memento>  
+- <https://www.baeldung.com/java-memento-design-pattern>
+- <https://www.tutorialspoint.com/design_pattern/memento_pattern.htm>
+- <https://java-design-patterns.com/es/patterns/memento>
 
 ### _"Mediator Pattern"_
 
