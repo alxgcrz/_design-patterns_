@@ -1,7 +1,5 @@
 # Patrones de diseño en Java
 
-... EN DESARROLLO ...
-
 ## Introducción
 
 Los patrones de diseño son técnicas que permiten resolver problemas comunes en el desarrollo de software y en otros ámbitos referentes al diseño de interacción o interfaces.
@@ -236,7 +234,7 @@ class Invoker {
 }
 ```
 
-#### Consideraciones finales
+#### Consideraciones
 
 Como se ha comentado, este patrón desacopla el objeto que invoca la operación del objeto que sabe realizarla.
 
