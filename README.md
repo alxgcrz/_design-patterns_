@@ -2,7 +2,7 @@
 
 ## Introducción
 
-Los patrones de diseño son técnicas que permiten resolver problemas comunes en el desarrollo de software y en otros ámbitos referentes al diseño de interacción o interfaces.
+Los patrones de diseño son **técnicas que permiten resolver problemas comunes en el desarrollo de software** y en otros ámbitos referentes al diseño de interacción o interfaces.
 
 Los patrones de diseño pretenden:
 
@@ -22,6 +22,8 @@ Por tanto no es obligatorio utilizar los patrones. Sólo es aconsejable en el ca
 - <https://www.geeksforgeeks.org/software-design-patterns/>
 - <https://www.geeksforgeeks.org/java-design-patterns>
 
+---
+
 ## _"Behavioral Patterns"_
 
 Los patrones de comportamiento se definen como patrones de diseño de software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan.
@@ -39,7 +41,7 @@ Los patrones de comportamiento son [**_Chain of Responsibility_**](#chain-of-res
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Evite acoplar el remitente de una solicitud a su receptor dándole a más de un objeto la oportunidad de manejar la solicitud. Encadene los objetos receptores y pase la solicitud a lo largo de la cadena hasta que un objeto la maneje._
+> **_Evite acoplar el remitente de una solicitud a su receptor dándole a más de un objeto la oportunidad de manejar la solicitud. Encadene los objetos receptores y pase la solicitud a lo largo de la cadena hasta que un objeto la maneje._**
 >
 > _-- GoF_
 
@@ -163,7 +165,7 @@ Por úlimo, cuando el conjunto de manejadores y su orden deban cambiar en el tie
 
 #### Concepto
 
-> _Encapsule una solicitud como un objeto, lo que le permite parametrizar a los clientes con diferentes solicitudes, solicitudes de cola o registro y admite operaciones que no se pueden deshacer._
+> **_Encapsule una solicitud como un objeto, lo que le permite parametrizar a los clientes con diferentes solicitudes, solicitudes de cola o registro y admite operaciones que no se pueden deshacer._**
 >
 > _-- GoF_
 
@@ -262,7 +264,7 @@ Una función de devolución de llamada se puede diseñar con este patrón.
 
 ### _"Interpreter Pattern"_
 
-> _Dado un lenguaje, defina una representación para su gramática junto con un intérprete que use la representación para interpretar oraciones en el lenguaje._
+> **_Dado un lenguaje, defina una representación para su gramática junto con un intérprete que use la representación para interpretar oraciones en el lenguaje._**
 >
 > _-- GoF_
 
@@ -296,7 +298,7 @@ La sentencia del lenguaje se representa mediante un árbol de sintaxis abstracta
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Proporcionar una forma de acceder a los elementos de un objeto agregado de forma secuencial sin exponer su representación subyacente._
+> **_Proporcionar una forma de acceder a los elementos de un objeto agregado de forma secuencial sin exponer su representación subyacente._**
 >
 > _-- GoF_
 
@@ -388,7 +390,7 @@ public class Client {
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Defina un objeto que encapsule cómo interactúa un conjunto de objetos. El mediador promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y le permite variar su interacción de forma independiente._
+> **_Defina un objeto que encapsule cómo interactúa un conjunto de objetos. El mediador promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y le permite variar su interacción de forma independiente._**
 >
 > _-- GoF_
 
@@ -492,7 +494,7 @@ Sin embargo en el **_'Facade Pattern'_** los objetos pueden comunicarse entre s�
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Sin violar la encapsulación, captura y externaliza el estado interno de un objeto para que el objeto pueda restaurarse a este estado más adelante._
+> **_Sin violar la encapsulación, captura y externaliza el estado interno de un objeto para que el objeto pueda restaurarse a este estado más adelante._**
 >
 > _-- GoF_
 
@@ -598,7 +600,7 @@ Este patrón se puede implementar utilizando la serialización, que es bastante 
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Define una dependencia de uno a muchos entre objetos para que cuando un objeto cambie de estado, todos sus dependientes sean notificados y actualizados automáticamente._
+> **_Define una dependencia de uno a muchos entre objetos para que cuando un objeto cambie de estado, todos sus dependientes sean notificados y actualizados automáticamente._**
 >
 > _-- GoF_
 
@@ -683,7 +685,7 @@ class Observer {
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Permitir que un objeto altere su comportamiento cuando cambia su estado interno. El objeto aparecerá para cambiar su clase._
+> **_Permitir que un objeto altere su comportamiento cuando cambia su estado interno. El objeto aparecerá para cambiar su clase._**
 >
 > _-- GoF_
 
@@ -846,7 +848,7 @@ Un sistema con muchos estados o si el número se incrementa significativamente s
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Defina una familia de algoritmos, encapsule cada uno de ellos y hágalos intercambiables. Este patrón permite que el algoritmo varíe independientemente de cliente a cliente._
+> **_Defina una familia de algoritmos, encapsule cada uno de ellos y hágalos intercambiables. Este patrón permite que el algoritmo varíe independientemente de cliente a cliente._**
 >
 > _-- GoF_
 
@@ -952,7 +954,7 @@ A grosso modo, este patrón realiza una tarea bastante similar al **_'Template M
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Define el esqueleto de un algoritmo en una operación, aplazando algunos pasos a las subclases. El método de la plantilla permite subclases redefinir ciertos pasos de un algoritmo sin cambiar la estructura del algoritmo._
+> **_Define el esqueleto de un algoritmo en una operación, aplazando algunos pasos a las subclases. El método de la plantilla permite subclases redefinir ciertos pasos de un algoritmo sin cambiar la estructura del algoritmo._**
 >
 > _-- GoF_
 
@@ -1090,7 +1092,7 @@ Hay que minimizar el número de métodos abstractos (métodos sin cuerpo). De lo
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Representa una operación a realizar en los elementos de una estructura de objeto. Este patrón le permite definir una nueva operación sin cambiar las clases de los elementos sobre los que opera._
+> **_Representa una operación a realizar en los elementos de una estructura de objeto. Este patrón le permite definir una nueva operación sin cambiar las clases de los elementos sobre los que opera._**
 >
 > _-- GoF_
 
@@ -1196,7 +1198,7 @@ Los patrones creacionales son [**_Abstract Factory_**](#abstract-factory-pattern
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Proporciona una interfaz para crear familias de objetos relacionados o dependientes sin especificar sus clases concretas._
+> **_Proporciona una interfaz para crear familias de objetos relacionados o dependientes sin especificar sus clases concretas._**
 >
 > _-- GoF_
 
@@ -1335,7 +1337,7 @@ Este patrón separa las clases concretas y facilita el intercambio de productos.
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Separa la construcción de un objeto complejo de su representación para que los mismos procesos de construcción puedan crear diferentes representaciones._
+> **_Separa la construcción de un objeto complejo de su representación para que los mismos procesos de construcción puedan crear diferentes representaciones._**
 >
 > _-- GoF_
 
@@ -1459,7 +1461,7 @@ public class Director {
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Defina una interfaz para crear un objeto, pero deje que las subclases decidan qué clase instanciar. Este patrón permite que una clase difiera la creación de instancias a subclases._
+> **_Defina una interfaz para crear un objeto, pero deje que las subclases decidan qué clase instanciar. Este patrón permite que una clase difiera la creación de instancias a subclases._**
 >
 > _-- GoF_
 
@@ -1543,7 +1545,7 @@ Este patrón también es útil cuando se implementan jerarquías de clases paral
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Especifique los tipos de objetos para crear utilizando una instancia prototípica y cree nuevos objetos copiando este prototipo._
+> **_Especifique los tipos de objetos para crear utilizando una instancia prototípica y cree nuevos objetos copiando este prototipo._**
 >
 > _-- GoF_
 
@@ -1636,7 +1638,7 @@ Por el contrario, una de las desventajas es que cada subclase tiene que implemen
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Asegúrese de que una clase solo tenga una instancia y proporcione un punto de acceso global a ella._
+> **_Asegúrese de que una clase solo tenga una instancia y proporcione un punto de acceso global a ella._**
 >
 > _-- GoF_
 
@@ -1754,7 +1756,7 @@ Los patrones estructurales son [**_Adapter_**](#adapter-pattern), [**_Bridge_**]
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Convierte la interfaz de una clase en otra interfaz que los clientes esperan. Este patrón permite que las clases trabajen juntas que de otra manera no podrían hacerlo debido a interfaces incompatibles._
+> **_Convierte la interfaz de una clase en otra interfaz que los clientes esperan. Este patrón permite que las clases trabajen juntas que de otra manera no podrían hacerlo debido a interfaces incompatibles._**
 >
 > _-- GoF_
 
@@ -1833,7 +1835,7 @@ Este patrón se parece al **_'Decorator Pattern'_**. Sin embargo, difieren en qu
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Desacoplar una abstracción de su implementación para que ambos puedan variar independientemente._
+> **_Desacoplar una abstracción de su implementación para que ambos puedan variar independientemente._**
 >
 > _-- GoF_
 
@@ -1963,7 +1965,7 @@ La desventaja de este patrón es que puede hacer que el código sea más complic
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Componer objetos en estructuras de árbol para representar jerarquías parciales. Este patrón permite a los clientes tratar objetos individuales y composiciones de objetos de manera uniforme._
+> **_Componer objetos en estructuras de árbol para representar jerarquías parciales. Este patrón permite a los clientes tratar objetos individuales y composiciones de objetos de manera uniforme._**
 >
 > _-- GoF_
 
@@ -2049,7 +2051,7 @@ Los clientes pueden añadir nuevos tipos de componentes fácilmente.
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Asignar responsabilidades adicionales a un objeto de forma dinámica. Los decoradores ofrecen una alternativa flexible a la subclasificación para ampliar la funcionalidad._
+> **_Asignar responsabilidades adicionales a un objeto de forma dinámica. Los decoradores ofrecen una alternativa flexible a la subclasificación para ampliar la funcionalidad._**
 >
 > _-- GoF_
 
@@ -2178,7 +2180,7 @@ Este patrón se diferencia de la simple herencia en que podemos añadir o quitar
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Proporcionar una interfaz unificada a un conjunto de interfaces en un sistema. Este patrón define una interfaz de nivel superior que facilita el uso del subsistema._
+> **_Proporcionar una interfaz unificada a un conjunto de interfaces en un sistema. Este patrón define una interfaz de nivel superior que facilita el uso del subsistema._**
 >
 > _-- GoF_
 
@@ -2272,7 +2274,7 @@ Un problema derivado del uso de este patrón es que si no se dividen correctamen
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Compartir una parte común del estado de un objeto para hacer más eficiente la gestión de un número elevado de objetos de grano más fino._
+> **_Compartir una parte común del estado de un objeto para hacer más eficiente la gestión de un número elevado de objetos de grano más fino._**
 >
 > _-- GoF_
 
@@ -2372,7 +2374,7 @@ Adenás, el código se vuelve mucho más complicado.
 </div>
 <!-- markdownlint-disable MD033 -->
 
-> _Proporcione un sustituto o marcador de posición para que otro objeto controle el acceso a él._
+> **_Proporcione un sustituto o marcador de posición para que otro objeto controle el acceso a él._**
 >
 > _-- GoF_
 
