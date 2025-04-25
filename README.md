@@ -2575,12 +2575,20 @@ El patrón **_'MVC'_** se utiliza en un gran número de entornos de ventanas y s
 
 Sin embargo, es la estructura más utilizada en los videojuegos: la interfaz gráfica utilizando gráficos 2D/3D (vista), bucle de eventos (controlador) y las estructuras de datos internas (modelo).
 
-#### Referencias
+---
 
+## Enlaces
+
+- 👓 <https://github.com/DovAmir/awesome-design-patterns>
+- [Design Patterns & Refactoring](https://sourcemaking.com/)
+- [Design Patterns for Humans™ - An ultra-simplified explanation - Github](https://github.com/kamranahmedse/design-patterns-for-humans)
+- [Design Patterns | Object Oriented Design](https://www.oodesign.com/)
+- [Catalog of Design Patterns](https://refactoring.guru/design-patterns/catalog)
+- ⭐ [Design patterns implemented in Java](https://java-design-patterns.com/)
+- <https://www.tutorialspoint.com/design_pattern/index.htm>
+- ⭐ [The twelve-factor app](https://12factor.net/es/)
 - <https://www.baeldung.com/mvc-vs-mvp-pattern>
 - <https://www.digitalocean.com/community/tutorials/what-is-mvc>
-
----
 
 ## Licencia
 
